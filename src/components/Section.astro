@@ -1,0 +1,14 @@
+---
+interface Props {
+  title: string;
+  backgroundColor: string;
+}
+
+const { title, backgroundColor } = Astro.props;
+---
+<section>
+  <h2 class={`text-3xl font-bold mb-6 p-2 inline-block ${backgroundColor} rounded-lg`}>{title}</h2>
+  <div class="bg-white p-6">
+    <slot />
+  </div>
+</section>

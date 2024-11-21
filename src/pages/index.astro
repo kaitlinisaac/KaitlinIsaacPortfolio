@@ -1,0 +1,48 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Section from '../components/Section.astro';
+import BlogPost from '../components/BlogPost.astro';
+import ContactForm from '../components/ContactForm.astro';
+
+const blogPosts = [
+  {
+    title: "Building Accessible Web Applications",
+    subtitle: "A guide to WCAG 2.1 compliance",
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+  },
+  {
+    title: "The Future of Web Development",
+    subtitle: "Trends and predictions for 2024",
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+  }
+];
+---
+
+<Layout title="Dylan Isaac - Developer & Accessibility Expert">
+  <Header />
+  <main class="max-w-4xl mx-auto px-6 md:px-8 pt-12">
+    <Section title="Blog" backgroundColor="bg-section-blog">
+      {blogPosts.map((post, index) => (
+        <BlogPost 
+          title={post.title}
+          subtitle={post.subtitle}
+          isExpanded={index === 0}
+        >
+          <p class="mt-4 ml-6 text-gray-700">{post.content}</p>
+        </BlogPost>
+      ))}
+    </Section>
+    
+    <Section title="Projects & Talks" backgroundColor="bg-section-talks">
+      <BlogPost 
+        title="Web Accessibility Best Practices"
+        subtitle="JSConf 2023"
+      />
+    </Section>
+
+    <Section title="Contact" backgroundColor="bg-purple-100">
+      <ContactForm />
+    </Section>
+  </main>
+</Layout>
