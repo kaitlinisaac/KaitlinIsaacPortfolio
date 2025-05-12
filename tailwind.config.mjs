@@ -9,44 +9,44 @@ export default {
       colors: {
         // Primary palette
         primary: {
-          DEFAULT: '#FF69B4', // Pink
-          light: '#FF8CC6',
-          dark: '#D14B91',
+          DEFAULT: '#DABFFF', // Main purple
+          light: '#E6D5FF',
+          dark: '#BEA3E5',
         },
         secondary: {
-          DEFAULT: '#28BCCB', // Cyan
-          light: '#4FD8E6',
-          dark: '#1E8F9B',
+          DEFAULT: '#9E95A9', // Muted purple-gray
+          light: '#B6AFC1',
+          dark: '#837A8E',
         },
         accent: {
-          DEFAULT: '#87CB28', // Green
-          light: '#A1E042',
-          dark: '#699C1F',
-          yellow: '#FFEA31',
+          DEFAULT: '#FFFBBF', // Soft yellow
+          light: '#FFFDD9',
+          dark: '#FFF999',
+          yellow: '#FFFBBF',
         },
         // Semantic colors
         content: {
-          DEFAULT: '#1F2937',
-          muted: '#6B7280',
-          subtle: '#9CA3AF',
-          inverted: '#FEFCFA',
+          DEFAULT: '#56505F', // Dark text
+          muted: '#76717F',
+          subtle: '#96919F',
+          inverted: '#FEFDFF',
         },
         surface: {
-          DEFAULT: '#FEFCFA',
-          secondary: '#FDF9F6',
-          muted: '#FAF7F3',
+          DEFAULT: '#FEFDFF', // Light background
+          secondary: '#F6F4FA',
+          muted: '#EEEDF2',
         },
         // Dark mode variants
         'dark-content': {
-          DEFAULT: '#F9FAFB',
-          muted: '#D1D5DB',
-          subtle: '#9CA3AF',
-          inverted: '#1A1A1A',
+          DEFAULT: '#FEFDFF', // Light text on dark background
+          muted: '#DFDCE5',
+          subtle: '#C5C1CE',
+          inverted: '#2D2A33',
         },
         'dark-surface': {
-          DEFAULT: '#1A1A1A',
-          secondary: '#242424',
-          muted: '#2A2A2A',
+          DEFAULT: '#2D2A33', // Dark background
+          secondary: '#3A3740',
+          muted: '#4A474E',
         },
       },
       spacing: {
@@ -108,7 +108,7 @@ export default {
             a: {
               color: theme('colors.primary.DEFAULT'),
               textDecoration: 'underline',
-              textDecorationColor: 'rgb(255 105 180 / 0.3)', // primary color with 30% opacity
+              textDecorationColor: 'rgb(218 191 255 / 0.4)', // primary color with 40% opacity
               textUnderlineOffset: '4px',
               textDecorationThickness: '2px',
               transition: 'all 300ms',
@@ -128,7 +128,7 @@ export default {
             '--tw-prose-quotes': theme('colors.dark-content.muted'),
             a: {
               color: theme('colors.primary.light'),
-              textDecorationColor: 'rgb(255 140 198 / 0.3)', // primary-light color with 30% opacity
+              textDecorationColor: 'rgb(230 213 255 / 0.4)', // primary-light color with 40% opacity
               '&:hover': {
                 textDecorationColor: theme('colors.primary.light'),
               },

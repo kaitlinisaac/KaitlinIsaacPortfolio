@@ -4,10 +4,10 @@ import TableOfContents from './TableOfContents.astro';
 
 const navItems = [
   { href: "/music-education", label: "Music Education", dotColor: "bg-primary" },
-  { href: "/design", label: "Design", dotColor: "bg-secondary" },
-  { href: "/private-lessons", label: "Private Lessons", dotColor: "bg-accent" },
+  { href: "/design", label: "Design", dotColor: "bg-primary" },
+  { href: "/private-lessons", label: "Private Lessons", dotColor: "bg-primary" },
   { href: "/blog", label: "Blog", dotColor: "bg-primary" },
-  { href: "/contact", label: "Contact", dotColor: "bg-secondary" },
+  { href: "/contact", label: "Contact", dotColor: "bg-primary" },
 ];
 ---
 
@@ -19,7 +19,7 @@ const navItems = [
 </a>
 
 <div class="sticky top-0 z-40 bg-surface dark:bg-dark-surface">
-  <header class="border-b border-accent-yellow dark:border-accent-yellow">
+  <header class="border-b border-accent dark:border-accent">
     <div class="max-w-4xl mx-auto px-6 md:px-8 py-md">
       <div class="flex justify-between items-center">
         <a 
@@ -59,8 +59,8 @@ const navItems = [
             class="flex flex-col gap-1.5 p-2 hover:bg-surface-secondary dark:hover:bg-dark-surface-secondary rounded-lg transition-colors"
           >
             <span class="w-5 h-0.5 bg-primary"></span>
-            <span class="w-5 h-0.5 bg-secondary"></span>
-            <span class="w-5 h-0.5 bg-accent"></span>
+            <span class="w-5 h-0.5 bg-primary"></span>
+            <span class="w-5 h-0.5 bg-primary"></span>
           </button>
         </div>
       </div>

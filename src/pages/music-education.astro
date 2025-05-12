@@ -7,53 +7,98 @@ import Heading from '../components/Heading.astro';
 
 <Layout title="Music Education | Kaitlin Isaac">
   <Header />
-  <main id="main" class="max-w-2xl mx-auto px-6 md:px-8 py-16 space-y-16">
-    <!-- Hero Section -->
-    <section class="space-y-6 max-w-2xl">
-      <Heading 
-        level={1}
-        class="text-center"
-      >
-        Music Education
-      </Heading>
-      
-      <p class="text-lg leading-relaxed">
-        As a former middle school band teacher, I'm passionate about music education and ensuring all students 
-        have access to quality music learning experiences. Here you'll find resources, insights, and my philosophy 
-        on music education.
-      </p>
+  <main id="main" class="max-w-2xl mx-auto px-6 md:px-8 py-8 space-y-8">
+    <!-- Teaching Philosophy Section -->
+    <section>
+      <div class="bg-primary bg-opacity-20 p-6 rounded-lg">
+        <h2 class="text-h3 font-medium mb-4">Teaching Philosophy</h2>
+        <div class="space-y-md">
+          <p class="text-body leading-relaxed">
+            I believe that music education is essential for the complete development of every child. Music teaches 
+            creativity, discipline, teamwork, and provides a unique way to express emotions and ideas.
+          </p>
+          
+          <p class="text-body leading-relaxed">
+            My approach incorporates:
+          </p>
+          
+          <ul class="list-disc pl-6 space-y-2">
+            <li>Student-centered learning experiences</li>
+            <li>Culturally responsive teaching methods</li>
+            <li>Integration of technology when appropriate</li>
+            <li>Focus on both individual growth and ensemble skills</li>
+            <li>Creating a safe, supportive learning environment</li>
+          </ul>
+        </div>
+      </div>
     </section>
 
-    <!-- Philosophy Section -->
-    <Section title="My Philosophy" backgroundColor="primary">
-      <div class="space-y-md">
-        <p class="text-body leading-relaxed">
-          I believe that music education is essential for the complete development of every child. Music teaches 
-          creativity, discipline, teamwork, and provides a unique way to express emotions and ideas.
-        </p>
+    <!-- Lessons & Materials Section -->
+    <section>
+      <div class="bg-accent bg-opacity-30 p-4 rounded-lg">
+        <h2 class="text-h3 font-medium mb-4">Lessons & Materials</h2>
         
-        <p class="text-body leading-relaxed">
-          My approach to music education centers on creating inclusive, engaging environments where students 
-          of all backgrounds and ability levels can thrive and develop a lifelong love of music.
-        </p>
+        <div class="space-y-4">
+          <!-- Lesson Card 1 -->
+          <div class="bg-surface rounded-lg p-4 flex items-start gap-4 shadow-sm">
+            <div class="w-12 h-12 bg-gray-200 rounded-full flex-shrink-0"></div>
+            <div>
+              <h3 class="font-medium">Beginning Band: First Notes</h3>
+              <p class="text-sm text-content-muted">Tips for helping students produce their first sounds on wind instruments...</p>
+            </div>
+          </div>
+          
+          <!-- Lesson Card 2 -->
+          <div class="bg-surface rounded-lg p-4 flex items-start gap-4 shadow-sm">
+            <div class="w-12 h-12 bg-gray-200 rounded-full flex-shrink-0"></div>
+            <div>
+              <h3 class="font-medium">Rhythm Basics: Quarter & Eighth Notes</h3>
+              <p class="text-sm text-content-muted">Interactive activities to help students understand rhythm patterns...</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- See All Button -->
+        <div class="flex justify-end mt-4">
+          <a href="/music-education/lessons" class="bg-primary text-content px-6 py-2 rounded-full text-sm font-medium hover:bg-primary-dark transition-colors">
+            see all →
+          </a>
+        </div>
       </div>
-    </Section>
+    </section>
 
-    <!-- Resources Section -->
-    <Section title="Resources" backgroundColor="secondary">
-      <div class="space-y-md">
-        <p class="text-body leading-relaxed">
-          I'm in the process of developing resources for music educators, students, and parents. Check back soon for:
-        </p>
+    <!-- Videos Section -->
+    <section>
+      <div class="bg-accent bg-opacity-30 p-4 rounded-lg">
+        <h2 class="text-h3 font-medium mb-4">Videos</h2>
         
-        <ul class="list-disc pl-6 space-y-2">
-          <li>Lesson plans and teaching materials</li>
-          <li>Instrument care guides</li>
-          <li>Practice strategies for students</li>
-          <li>Music technology resources</li>
-          <li>Advocacy materials for music programs</li>
-        </ul>
+        <div class="grid grid-cols-3 gap-2">
+          <!-- Video Thumbnail 1 -->
+          <div>
+            <div class="aspect-video bg-gray-200 rounded-md mb-1"></div>
+            <p class="text-xs text-center font-medium">Student Concerts</p>
+          </div>
+          
+          <!-- Video Thumbnail 2 -->
+          <div>
+            <div class="aspect-video bg-gray-200 rounded-md mb-1"></div>
+            <p class="text-xs text-center font-medium">Classroom Videos</p>
+          </div>
+          
+          <!-- Video Thumbnail 3 -->
+          <div>
+            <div class="aspect-video bg-gray-200 rounded-md mb-1"></div>
+            <p class="text-xs text-center font-medium">Flute Performances</p>
+          </div>
+        </div>
+        
+        <!-- See All Button -->
+        <div class="flex justify-end mt-4">
+          <a href="/music-education/videos" class="bg-primary text-content px-6 py-2 rounded-full text-sm font-medium hover:bg-primary-dark transition-colors">
+            see all →
+          </a>
+        </div>
       </div>
-    </Section>
+    </section>
   </main>
 </Layout> 

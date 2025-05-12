@@ -27,10 +27,8 @@ export async function getStaticPaths() {
 
 const { category, posts } = Astro.props;
 
-// Determine category color
-let categoryColor = "primary";
-if (category === "Design") categoryColor = "secondary";
-if (category === "Private Lessons") categoryColor = "accent";
+// Always use primary color for all categories
+const categoryColor = "primary";
 ---
 
 <Layout title={`${category} | Blog | Kaitlin Isaac`}>

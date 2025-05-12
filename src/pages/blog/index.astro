@@ -38,12 +38,8 @@ const categories = [...new Set(posts.map(post => post.data.category))];
     <Section title="Categories" backgroundColor="secondary">
       <div class="flex flex-wrap gap-4">
         {categories.map((category) => {
-          let colorClass = "tag-primary";
-          if (category === "Design") colorClass = "tag-secondary";
-          if (category === "Private Lessons") colorClass = "tag-accent";
-          
           return (
-            <a href={`/blog/category/${category.toLowerCase().replace(/\s+/g, '-')}`} class={`tag ${colorClass}`}>
+            <a href={`/blog/category/${category.toLowerCase().replace(/\s+/g, '-')}`} class="tag tag-primary">
               {category}
             </a>
           );

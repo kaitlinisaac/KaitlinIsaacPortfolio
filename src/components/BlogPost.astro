@@ -1,21 +1,66 @@
 ---
 interface Props {
   title: string;
-  subtitle: string;
+  description?: string;
+  date?: string;
+  category?: string;
+  slug?: string;
+  subtitle?: string;
   isExpanded?: boolean;
 }
 
-const { title, subtitle, isExpanded = false } = Astro.props;
+const { 
+  title, 
+  description, 
+  date, 
+  category, 
+  slug, 
+  subtitle, 
+  isExpanded = false 
+} = Astro.props;
+
+// Backwards compatibility for older uses of the component
+const hasNewFormat = description !== undefined && slug !== undefined;
 ---
-<article class="border-b border-surface-secondary dark:border-dark-surface-secondary py-4">
-  <button class="w-full text-left group focus-ring rounded-md" aria-expanded={isExpanded}>
-    <div class="flex items-center">
-      <span class="transform group-aria-expanded:rotate-180 transition-transform text-content-muted">
-        {isExpanded ? '▼' : '▶'}
-      </span>
-      <h3 class="text-h3 font-medium ml-2">{title}</h3>
+
+{hasNewFormat ? (
+  <article class="border-b border-surface-secondary dark:border-dark-surface-secondary pb-6 pt-2">
+    <div class="mb-2 flex justify-between items-baseline">
+      <div class="flex items-baseline gap-3">
+        <h3 class="text-h4 font-medium">
+          <a href={slug} class="hover:text-primary">{title}</a>
+        </h3>
+        {category && (
+          <span class="text-sm text-primary">
+            {category}
+          </span>
+        )}
+      </div>
+      {date && (
+        <time datetime={date} class="text-small text-content-muted dark:text-dark-content-muted">
+          {new Date(date).toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric'
+          })}
+        </time>
+      )}
     </div>
-    <p class="text-content-muted ml-6">{subtitle}</p>
-  </button>
-  {isExpanded && <slot />}
-</article>
+    {description && (
+      <p class="text-content-muted dark:text-dark-content-muted">{description}</p>
+    )}
+  </article>
+) : (
+  <article class="border-b border-surface-secondary dark:border-dark-surface-secondary py-4">
+    <button class="w-full text-left group focus-ring rounded-md" aria-expanded={isExpanded}>
+      <div class="flex items-center">
+        <span class="transform group-aria-expanded:rotate-180 transition-transform text-content-muted">
+          {isExpanded ? '▼' : '▶'}
+        </span>
+        <h3 class="text-h3 font-medium ml-2">{title}</h3>
+      </div>
+      <p class="text-content-muted ml-6">{subtitle}</p>
+    </button>
+    {isExpanded && <slot />}
+  </article>
+)}

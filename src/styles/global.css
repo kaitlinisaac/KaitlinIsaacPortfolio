@@ -4,12 +4,12 @@
 
 @layer base {
   :root {
-    --selection-bg: rgb(255 105 180 / 0.2);
+    --selection-bg: rgb(218 191 255 / 0.3);
     --selection-text: theme('colors.content.DEFAULT');
   }
 
   .dark {
-    --selection-bg: rgb(255 105 180 / 0.3);
+    --selection-bg: rgb(218 191 255 / 0.4);
     --selection-text: theme('colors.dark-content.DEFAULT');
   }
 
@@ -31,14 +31,14 @@
   a {
     text-decoration-line: underline;
     text-decoration-thickness: 2px;
-    text-decoration-color: rgb(255 105 180 / 0.3);
+    text-decoration-color: rgb(218 191 255 / 0.4);
     text-underline-offset: 4px;
     color: theme('colors.primary.DEFAULT');
   }
 
   .dark a {
     color: theme('colors.primary.light');
-    text-decoration-color: rgb(255 140 198 / 0.3);
+    text-decoration-color: rgb(230 213 255 / 0.4);
   }
 }
 
@@ -52,20 +52,21 @@
     @apply inline-flex items-center 
            px-4 py-1.5 
            rounded-full 
-           text-surface
-           text-small font-medium;
+           text-content
+           font-medium 
+           text-small;
   }
 
   .tag-primary {
-    @apply bg-primary;
+    @apply bg-primary bg-opacity-90 text-content font-medium;
   }
 
   .tag-secondary {
-    @apply bg-secondary;
+    @apply bg-secondary bg-opacity-90 text-surface font-medium;
   }
 
   .tag-accent {
-    @apply bg-accent;
+    @apply bg-accent bg-opacity-90 text-content font-medium;
   }
 
   .focus-ring {
