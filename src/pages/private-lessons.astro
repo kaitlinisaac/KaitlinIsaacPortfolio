@@ -1,0 +1,138 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Section from '../components/Section.astro';
+import Heading from '../components/Heading.astro';
+import EmailCTA from '../components/EmailCTA.astro';
+---
+
+<Layout title="Private Lessons | Kaitlin Isaac">
+  <Header />
+  <main id="main" class="max-w-2xl mx-auto px-6 md:px-8 py-16 space-y-16">
+    <!-- Hero Section -->
+    <section class="space-y-6 max-w-2xl">
+      <Heading 
+        level={1}
+        class="text-center"
+      >
+        Private Music Lessons
+      </Heading>
+      
+      <p class="text-lg leading-relaxed">
+        I offer personalized music instruction for students of all ages and skill levels. 
+        My lessons are tailored to each student's goals, learning style, and musical interests, 
+        ensuring an engaging and effective learning experience.
+      </p>
+    </section>
+
+    <!-- Instruments Section -->
+    <Section title="Instruments Offered" backgroundColor="accent">
+      <div class="space-y-md">
+        <p class="text-body leading-relaxed">
+          I specialize in teaching the following instruments:
+        </p>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+          <div class="bg-surface-muted dark:bg-dark-surface-muted p-6 rounded-lg">
+            <h3 class="font-medium text-h4 mb-3">Woodwinds</h3>
+            <ul class="list-disc pl-6 space-y-1">
+              <li>Flute</li>
+              <li>Clarinet</li>
+              <li>Saxophone</li>
+            </ul>
+          </div>
+          <div class="bg-surface-muted dark:bg-dark-surface-muted p-6 rounded-lg">
+            <h3 class="font-medium text-h4 mb-3">Brass</h3>
+            <ul class="list-disc pl-6 space-y-1">
+              <li>Trumpet</li>
+              <li>Trombone</li>
+              <li>French Horn</li>
+            </ul>
+          </div>
+        </div>
+        
+        <p class="text-body leading-relaxed mt-6">
+          Not sure which instrument is right for you or your child? Contact me for a consultation, 
+          and I'll help you find the perfect match based on interests, physical attributes, and musical goals.
+        </p>
+      </div>
+    </Section>
+
+    <!-- Lesson Structure Section -->
+    <Section title="Lesson Structure" backgroundColor="primary">
+      <div class="space-y-md">
+        <p class="text-body leading-relaxed">
+          My lessons are structured to provide a comprehensive musical education that includes:
+        </p>
+        
+        <ul class="list-disc pl-6 space-y-3">
+          <li><strong>Technique:</strong> Proper posture, breathing, embouchure, and fingering techniques specific to each instrument</li>
+          <li><strong>Music Theory:</strong> Understanding the language of music, including note reading, rhythm, and harmony</li>
+          <li><strong>Repertoire:</strong> Playing a variety of music styles to develop versatility and maintain interest</li>
+          <li><strong>Performance Skills:</strong> Building confidence and expression through regular performance opportunities</li>
+          <li><strong>Practice Strategies:</strong> Learning effective ways to practice independently between lessons</li>
+        </ul>
+        
+        <p class="text-body leading-relaxed mt-4">
+          Lessons are typically 30, 45, or 60 minutes in length, depending on the student's age, 
+          experience level, and goals. I offer both in-person and virtual lessons to accommodate different preferences and schedules.
+        </p>
+      </div>
+    </Section>
+
+    <!-- Rates Section -->
+    <Section title="Rates & Policies" backgroundColor="secondary">
+      <div class="space-y-md">
+        <div class="overflow-x-auto">
+          <table class="min-w-full bg-surface dark:bg-dark-surface rounded-lg overflow-hidden">
+            <thead class="bg-primary bg-opacity-10 dark:bg-opacity-20">
+              <tr>
+                <th class="px-6 py-3 text-left text-small font-medium">Lesson Length</th>
+                <th class="px-6 py-3 text-left text-small font-medium">Single Lesson</th>
+                <th class="px-6 py-3 text-left text-small font-medium">Monthly Package (4 lessons)</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-surface-muted dark:divide-dark-surface-muted">
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap">30 minutes</td>
+                <td class="px-6 py-4 whitespace-nowrap">$30</td>
+                <td class="px-6 py-4 whitespace-nowrap">$110 ($27.50/lesson)</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap">45 minutes</td>
+                <td class="px-6 py-4 whitespace-nowrap">$45</td>
+                <td class="px-6 py-4 whitespace-nowrap">$165 ($41.25/lesson)</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap">60 minutes</td>
+                <td class="px-6 py-4 whitespace-nowrap">$60</td>
+                <td class="px-6 py-4 whitespace-nowrap">$220 ($55/lesson)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+        <div class="mt-6 space-y-4">
+          <h3 class="text-h4 font-medium">Policies</h3>
+          <ul class="list-disc pl-6 space-y-2">
+            <li>24-hour cancellation notice required to avoid being charged for the lesson</li>
+            <li>Makeup lessons available within the same month for timely cancellations</li>
+            <li>Monthly packages must be used within the calendar month</li>
+            <li>Payment accepted via Venmo, PayPal, or cash before each lesson or at the beginning of the month for packages</li>
+          </ul>
+        </div>
+      </div>
+    </Section>
+
+    <!-- Contact CTA -->
+    <Section title="Get Started" backgroundColor="accent">
+      <div class="space-y-md">
+        <p class="text-body leading-relaxed">
+          Ready to begin your musical journey? Contact me to schedule a consultation or your first lesson.
+        </p>
+        
+        <EmailCTA />
+      </div>
+    </Section>
+  </main>
+</Layout> 

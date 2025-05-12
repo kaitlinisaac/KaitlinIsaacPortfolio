@@ -1,0 +1,79 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Header from '../../../components/Header.astro';
+import Section from '../../../components/Section.astro';
+import Heading from '../../../components/Heading.astro';
+import BlogPost from '../../../components/BlogPost.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const allBlogPosts = await getCollection('blog');
+  
+  // Get all unique categories
+  const categories = [...new Set(allBlogPosts.map(post => post.data.category))];
+  
+  // Create a path for each category
+  return categories.map(category => {
+    const filteredPosts = allBlogPosts
+      .filter(post => post.data.category === category)
+      .sort((a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime());
+    
+    return {
+      params: { category: category.toLowerCase().replace(/\s+/g, '-') },
+      props: { category, posts: filteredPosts },
+    };
+  });
+}
+
+const { category, posts } = Astro.props;
+
+// Determine category color
+let categoryColor = "primary";
+if (category === "Design") categoryColor = "secondary";
+if (category === "Private Lessons") categoryColor = "accent";
+---
+
+<Layout title={`${category} | Blog | Kaitlin Isaac`}>
+  <Header />
+  <main id="main" class="max-w-2xl mx-auto px-6 md:px-8 py-16 space-y-16">
+    <!-- Hero Section -->
+    <section class="space-y-6 max-w-2xl">
+      <Heading level={1} class="text-center">
+        {category}
+      </Heading>
+      
+      <p class="text-lg leading-relaxed text-center">
+        Browse all posts in the {category} category
+      </p>
+    </section>
+
+    <!-- Posts Section -->
+    <Section title="Posts" backgroundColor={categoryColor}>
+      <div class="space-y-lg">
+        {posts.length > 0 ? (
+          posts.map((post) => (
+            <BlogPost 
+              title={post.data.title}
+              description={post.data.description}
+              date={post.data.publishDate.toISOString().split('T')[0]}
+              category={post.data.category}
+              slug={`/blog/${post.slug}`}
+            />
+          ))
+        ) : (
+          <p>No posts found in this category.</p>
+        )}
+      </div>
+    </Section>
+
+    <!-- Back to Blog Link -->
+    <div class="text-center">
+      <a href="/blog" class="inline-flex items-center gap-2 text-primary hover:underline">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+        </svg>
+        Back to all blog posts
+      </a>
+    </div>
+  </main>
+</Layout> 

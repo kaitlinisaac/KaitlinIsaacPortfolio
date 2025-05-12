@@ -1,0 +1,59 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Section from '../components/Section.astro';
+import Heading from '../components/Heading.astro';
+---
+
+<Layout title="Music Education | Kaitlin Isaac">
+  <Header />
+  <main id="main" class="max-w-2xl mx-auto px-6 md:px-8 py-16 space-y-16">
+    <!-- Hero Section -->
+    <section class="space-y-6 max-w-2xl">
+      <Heading 
+        level={1}
+        class="text-center"
+      >
+        Music Education
+      </Heading>
+      
+      <p class="text-lg leading-relaxed">
+        As a former middle school band teacher, I'm passionate about music education and ensuring all students 
+        have access to quality music learning experiences. Here you'll find resources, insights, and my philosophy 
+        on music education.
+      </p>
+    </section>
+
+    <!-- Philosophy Section -->
+    <Section title="My Philosophy" backgroundColor="primary">
+      <div class="space-y-md">
+        <p class="text-body leading-relaxed">
+          I believe that music education is essential for the complete development of every child. Music teaches 
+          creativity, discipline, teamwork, and provides a unique way to express emotions and ideas.
+        </p>
+        
+        <p class="text-body leading-relaxed">
+          My approach to music education centers on creating inclusive, engaging environments where students 
+          of all backgrounds and ability levels can thrive and develop a lifelong love of music.
+        </p>
+      </div>
+    </Section>
+
+    <!-- Resources Section -->
+    <Section title="Resources" backgroundColor="secondary">
+      <div class="space-y-md">
+        <p class="text-body leading-relaxed">
+          I'm in the process of developing resources for music educators, students, and parents. Check back soon for:
+        </p>
+        
+        <ul class="list-disc pl-6 space-y-2">
+          <li>Lesson plans and teaching materials</li>
+          <li>Instrument care guides</li>
+          <li>Practice strategies for students</li>
+          <li>Music technology resources</li>
+          <li>Advocacy materials for music programs</li>
+        </ul>
+      </div>
+    </Section>
+  </main>
+</Layout> 

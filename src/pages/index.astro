@@ -6,28 +6,29 @@ import Heading from '../components/Heading.astro';
 import ArrowLink from '../components/ArrowLink.astro';
 
 const roles = [
-  { text: "Enablement Engineer", color: "bg-accent" },
-  { text: "Systems Thinker", color: "bg-accent" }
+  { text: "Music Educator", color: "bg-primary" },
+  { text: "UX Designer", color: "bg-secondary" },
+  { text: "Crochet Artist", color: "bg-accent" }
 ];
 
 const highlights = [
 {
-  "title": "AI Accessibility Engineer",
-  "org": "Deque Systems",
-  "orgUrl": "https://deque.com",
-  "description": "Leading the development of AI-driven tools like <a href=\"https://dequeuniversity.com/introducing-axe-assistant\">axe Assistant</a>, I focus on creating accessibility solutions that integrate seamlessly across all stages of the Software Development Lifecycle. My mission is to ensure our <strong>digital world</strong> reflects and serves the diverse lived experiences of <strong>all people</strong>."
+  "title": "Former Band Teacher",
+  "org": "Middle School Music Education",
+  "orgUrl": "/music-education",
+  "description": "With years of experience teaching band to middle school students, I've developed a passion for <strong>music education</strong> and creating engaging learning experiences. I believe that <strong>music is for everyone</strong> and work to make it accessible to students of all backgrounds and ability levels."
 },
 {
-  "title": "Co-founder",
-  "org": "Automate the Suck out of Life",
-  "orgUrl": "https://automatethesuckoutof.life",
-  "description": "I believe technology should <strong>empower</strong> and <strong>enable</strong> humans, not distract or oppress us. AtSooL's mission is to amplify society's most essential roles by designing simple systems that automate away monotony, giving people the freedom to focus on what brings them meaning and purpose."
+  "title": "UX Designer",
+  "org": "Digital Experience Design",
+  "orgUrl": "/design",
+  "description": "I create thoughtful, accessible digital experiences that center around user needs. My approach combines <strong>analytical thinking</strong> with <strong>creative problem-solving</strong> to design interfaces that are both functional and delightful to use."
 }
 ];
 
 ---
 
-<Layout title="Dylan Isaac - Enablement Engineer & System's Thinker">
+<Layout title="Kaitlin Isaac - Music Educator & UX Designer">
   <Header />
   <main id="main" class="max-w-2xl mx-auto px-6 md:px-8 py-16 space-y-16">
     <!-- Hero Section -->
@@ -36,13 +37,13 @@ const highlights = [
         level={1}
         class="sr-only"
       >
-        Dylan Isaac
+        Kaitlin Isaac
       </Heading>
 
       <div class="w-56 h-56 mx-auto mb-8">
         <img
           src="/me-square.jpg"
-          alt="Portrait of Dylan Isaac"
+          alt="Portrait of Kaitlin Isaac"
           width="250"
           height="250"
           loading="eager"
@@ -70,22 +71,19 @@ const highlights = [
       </div>
       
       <p class="text-lg leading-relaxed">
-        I am an engineer, designer, and systems thinker dedicated to <strong>democratizing technology</strong> and 
-        <strong>empowering people</strong>. 
+        I'm a passionate <strong>music educator</strong> and <strong>UX designer</strong> with a love for creating 
+        engaging experiences, both in the classroom and in digital spaces.
       </p>
         
       <p class="text-lg leading-relaxed">
-        My current focus is on leveraging generative AI to create more 
-        intuitive and accessible computing experiences - 
-        <em>
-          having computers adapt to people's needs 
-          rather than forcing people to adapt to computers.
-        </em>
+        My unique background bridges the gap between music education and digital design, allowing me to approach problems 
+        with creativity and empathy. I believe in crafting experiences that are accessible, intuitive, and 
+        <em>bring joy to people's lives</em>.
       </p>
     </section>
 
     <!-- Professional Highlights -->
-    <Section title="Current Work" backgroundColor="primary">
+    <Section title="What I Do" backgroundColor="primary">
       <div class="space-y-lg max-w-2xl">
         {highlights.map(({ title, org, orgUrl, description }) => (
           <div class="space-y-sm group">
@@ -94,8 +92,6 @@ const highlights = [
               <a 
                 href={orgUrl}
                 class="text-h4 text-content-muted dark:text-dark-content-muted underline decoration-1 underline-offset-4 hover:decoration-2 focus:decoration-2 hover:text-accent focus:text-accent transition-all"
-                target="_blank"
-                rel="noopener noreferrer"
               >
                 {org}
               </a>
@@ -109,15 +105,45 @@ const highlights = [
       </div>
     </Section>
 
+    <!-- Hobbies Section -->
+    <Section title="Beyond Work" backgroundColor="accent">
+      <div class="space-y-md">
+        <p class="text-body leading-relaxed">
+          When I'm not teaching or designing, you can find me:
+        </p>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="bg-surface-muted dark:bg-dark-surface-muted p-6 rounded-lg">
+            <h3 class="font-medium text-h4 mb-3">Crocheting</h3>
+            <p>Creating beautiful, handcrafted items and translating pixel art into crochet patterns.</p>
+          </div>
+          <div class="bg-surface-muted dark:bg-dark-surface-muted p-6 rounded-lg">
+            <h3 class="font-medium text-h4 mb-3">Gardening</h3>
+            <p>Growing flowers, herbs, and vegetables in my garden and connecting with nature.</p>
+          </div>
+          <div class="bg-surface-muted dark:bg-dark-surface-muted p-6 rounded-lg">
+            <h3 class="font-medium text-h4 mb-3">Gaming</h3>
+            <p>Playing Stardew Valley and taking on challenges like completing the Community Center in Year One.</p>
+          </div>
+        </div>
+      </div>
+    </Section>
+
     <!-- Quick Links -->
-    <section id="lets-work-together">
-      <h2 class="sr-only">Let's Work Together</h2>
-      <nav class="flex gap-6" aria-label="Quick links">
-        <ArrowLink href="/writing">
-          Read my writing
+    <section id="lets-connect">
+      <h2 class="sr-only">Let's Connect</h2>
+      <nav class="flex flex-wrap gap-6" aria-label="Quick links">
+        <ArrowLink href="/music-education">
+          Music Education
         </ArrowLink>
-        <ArrowLink href="/projects">
-          View my projects
+        <ArrowLink href="/design">
+          Design Work
+        </ArrowLink>
+        <ArrowLink href="/blog">
+          Read my blog
+        </ArrowLink>
+        <ArrowLink href="/contact">
+          Contact me
         </ArrowLink>
       </nav>
     </section>
