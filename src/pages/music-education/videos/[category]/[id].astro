@@ -1,0 +1,112 @@
+---
+import Layout from '../../../../layouts/Layout.astro';
+import Header from '../../../../components/Header.astro';
+import Heading from '../../../../components/Heading.astro';
+
+// In a real application, this data would come from a database or content collection
+// For this example, we'll include the data directly in the page
+const videoData = {
+  "student-concerts": {
+    "student-concert-1": {
+      title: "Student Concert Title 1",
+      embedUrl: "#", // Replace with actual embed URL
+      description: "Video description and more context regarding the video. Eu ut mollit nostrud quis sunt adipisicing adipisicing velit Lorem. Excepteur culpa eiusmod commodo cupidatat excepteur aute minim nulla. Ut cupidatat dolore laboris aute non id. Tempor nostrud eu dolore magna sunt id duis esse aute voluptate voluptate aliqua anim commodo mollit. Elit minim id nisi labore. Aute cupidatat cillum exercitation nulla do."
+    },
+    "student-concert-2": {
+      title: "Student Concert Title 2",
+      embedUrl: "#",
+      description: "Video description and more context regarding the video. Eu ut mollit nostrud quis sunt adipisicing adipisicing velit Lorem. Excepteur culpa eiusmod commodo cupidatat excepteur aute minim nulla. Ut cupidatat dolore laboris aute non id. Tempor nostrud eu dolore magna sunt id duis esse aute voluptate voluptate aliqua anim commodo mollit. Elit minim id nisi labore. Aute cupidatat cillum exercitation nulla do."
+    },
+    "student-concert-3": {
+      title: "Student Concert Title 3",
+      embedUrl: "#",
+      description: "Video description and more context regarding the video. Eu ut mollit nostrud quis sunt adipisicing adipisicing velit Lorem. Excepteur culpa eiusmod commodo cupidatat excepteur aute minim nulla. Ut cupidatat dolore laboris aute non id. Tempor nostrud eu dolore magna sunt id duis esse aute voluptate voluptate aliqua anim commodo mollit. Elit minim id nisi labore. Aute cupidatat cillum exercitation nulla do."
+    }
+  },
+  "classroom-videos": {
+    "classroom-1": {
+      title: "Classroom Video Title 1",
+      embedUrl: "#",
+      description: "Video description and more context regarding the video. Eu ut mollit nostrud quis sunt adipisicing adipisicing velit Lorem. Excepteur culpa eiusmod commodo cupidatat excepteur aute minim nulla. Ut cupidatat dolore laboris aute non id. Tempor nostrud eu dolore magna sunt id duis esse aute voluptate voluptate aliqua anim commodo mollit. Elit minim id nisi labore. Aute cupidatat cillum exercitation nulla do."
+    },
+    "classroom-2": {
+      title: "Classroom Video Title 2",
+      embedUrl: "#",
+      description: "Video description and more context regarding the video. Eu ut mollit nostrud quis sunt adipisicing adipisicing velit Lorem. Excepteur culpa eiusmod commodo cupidatat excepteur aute minim nulla. Ut cupidatat dolore laboris aute non id. Tempor nostrud eu dolore magna sunt id duis esse aute voluptate voluptate aliqua anim commodo mollit. Elit minim id nisi labore. Aute cupidatat cillum exercitation nulla do."
+    }
+  },
+  "flute-performances": {
+    "flute-1": {
+      title: "Flute Performance Title 1",
+      embedUrl: "#",
+      description: "Video description and more context regarding the video. Eu ut mollit nostrud quis sunt adipisicing adipisicing velit Lorem. Excepteur culpa eiusmod commodo cupidatat excepteur aute minim nulla. Ut cupidatat dolore laboris aute non id. Tempor nostrud eu dolore magna sunt id duis esse aute voluptate voluptate aliqua anim commodo mollit. Elit minim id nisi labore. Aute cupidatat cillum exercitation nulla do."
+    },
+    "flute-2": {
+      title: "Flute Performance Title 2",
+      embedUrl: "#",
+      description: "Video description and more context regarding the video. Eu ut mollit nostrud quis sunt adipisicing adipisicing velit Lorem. Excepteur culpa eiusmod commodo cupidatat excepteur aute minim nulla. Ut cupidatat dolore laboris aute non id. Tempor nostrud eu dolore magna sunt id duis esse aute voluptate voluptate aliqua anim commodo mollit. Elit minim id nisi labore. Aute cupidatat cillum exercitation nulla do."
+    },
+    "flute-3": {
+      title: "Flute Performance Title 3",
+      embedUrl: "#",
+      description: "Video description and more context regarding the video. Eu ut mollit nostrud quis sunt adipisicing adipisicing velit Lorem. Excepteur culpa eiusmod commodo cupidatat excepteur aute minim nulla. Ut cupidatat dolore laboris aute non id. Tempor nostrud eu dolore magna sunt id duis esse aute voluptate voluptate aliqua anim commodo mollit. Elit minim id nisi labore. Aute cupidatat cillum exercitation nulla do."
+    }
+  }
+};
+
+// This function is required for static generation of dynamic routes
+export function getStaticPaths() {
+  const paths = [];
+  
+  // Generate paths for all videos in all categories
+  Object.entries(videoData).forEach(([category, videos]) => {
+    Object.keys(videos).forEach((id) => {
+      paths.push({
+        params: { category, id }
+      });
+    });
+  });
+  
+  return paths;
+}
+
+// Get the category and id from the URL
+const { category, id } = Astro.params;
+
+// Get the specific video data
+const video = videoData[category]?.[id];
+
+// If video doesn't exist, we could handle a 404 here
+// For this example, we'll just use placeholder data if not found
+const videoTitle = video?.title || "Video Not Found";
+const videoEmbed = video?.embedUrl || "#";
+const videoDescription = video?.description || "This video could not be found.";
+---
+
+<Layout title={`${videoTitle} | Music Education | Kaitlin Isaac`}>
+  <Header />
+  <main id="main" class="max-w-2xl mx-auto px-6 md:px-8 py-8 space-y-8">
+    <!-- Back link -->
+    <a href="/music-education/videos" class="inline-flex items-center gap-2 text-primary hover:underline">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+      </svg>
+      Back to all videos
+    </a>
+    
+    <!-- Video Title -->
+    <Heading level={1} class="mt-6">
+      {videoTitle}
+    </Heading>
+    
+    <!-- Video Embed -->
+    <div class="w-full aspect-video bg-gray-200 flex items-center justify-center text-gray-500">
+      [embedded video]
+    </div>
+    
+    <!-- Video Description -->
+    <div class="prose max-w-none">
+      <p>{videoDescription}</p>
+    </div>
+  </main>
+</Layout> 

@@ -1,0 +1,127 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Heading from '../../components/Heading.astro';
+
+// This could later be moved to a content collection
+const videoCategories = [
+  {
+    title: "Student Concerts",
+    videos: [
+      {
+        id: "student-concert-1",
+        title: "Video Title",
+        description: "Brief description about what the video is",
+        thumbnail: "/images/videos/placeholder.jpg",
+        category: "student-concerts"
+      },
+      {
+        id: "student-concert-2",
+        title: "Video Title",
+        description: "Brief description about what the video is",
+        thumbnail: "/images/videos/placeholder.jpg",
+        category: "student-concerts"
+      },
+      {
+        id: "student-concert-3",
+        title: "Video Title",
+        description: "Brief description about what the video is",
+        thumbnail: "/images/videos/placeholder.jpg",
+        category: "student-concerts"
+      }
+    ]
+  },
+  {
+    title: "Classroom Videos",
+    videos: [
+      {
+        id: "classroom-1",
+        title: "Video Title",
+        description: "Brief description about what the video is",
+        thumbnail: "/images/videos/placeholder.jpg",
+        category: "classroom-videos"
+      },
+      {
+        id: "classroom-2",
+        title: "Video Title",
+        description: "Brief description about what the video is",
+        thumbnail: "/images/videos/placeholder.jpg",
+        category: "classroom-videos"
+      }
+    ]
+  },
+  {
+    title: "Flute Performances",
+    videos: [
+      {
+        id: "flute-1",
+        title: "Video Title",
+        description: "Brief description about what the video is",
+        thumbnail: "/images/videos/placeholder.jpg",
+        category: "flute-performances"
+      },
+      {
+        id: "flute-2",
+        title: "Video Title",
+        description: "Brief description about what the video is",
+        thumbnail: "/images/videos/placeholder.jpg",
+        category: "flute-performances"
+      },
+      {
+        id: "flute-3",
+        title: "Video Title",
+        description: "Brief description about what the video is",
+        thumbnail: "/images/videos/placeholder.jpg",
+        category: "flute-performances"
+      }
+    ]
+  }
+];
+---
+
+<Layout title="Music Education Videos | Kaitlin Isaac">
+  <Header />
+  <main id="main" class="max-w-2xl mx-auto px-6 md:px-8 py-8 space-y-12">
+    <!-- Header -->
+    <div>
+      <Heading level={1} class="text-center mb-2">
+        Music Education Videos
+      </Heading>
+      <p class="text-center text-content-muted mb-8">
+        A collection of performances, classroom videos, and teaching demonstrations
+      </p>
+      
+      <!-- Back link -->
+      <a href="/music-education" class="inline-flex items-center gap-2 text-primary hover:underline mb-8">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+        </svg>
+        Back to Music Education
+      </a>
+    </div>
+
+    <!-- Video Categories -->
+    {videoCategories.map((category) => (
+      <section class="space-y-6">
+        <h2 class="text-h3 font-medium py-2 px-4 bg-accent bg-opacity-30 rounded-md">{category.title}</h2>
+        
+        <div class="space-y-4">
+          {category.videos.map((video) => (
+            <a 
+              href={`/music-education/videos/${video.category}/${video.id}`}
+              class="block border border-gray-200 rounded-lg overflow-hidden hover:shadow-md transition-shadow"
+            >
+              <div class="flex flex-row items-center">
+                <div class="w-24 h-24 bg-gray-200 flex-shrink-0"></div>
+                <div class="p-4">
+                  <h3 class="font-medium">{video.title}</h3>
+                  <p class="text-sm text-content-muted">{video.description}</p>
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
+    ))}
+  </main>
+</Layout> 
