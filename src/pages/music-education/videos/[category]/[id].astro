@@ -2,85 +2,31 @@
 import Layout from '../../../../layouts/Layout.astro';
 import Header from '../../../../components/Header.astro';
 import Heading from '../../../../components/Heading.astro';
+import { getCollection } from 'astro:content';
 
-// In a real application, this data would come from a database or content collection
-// For this example, we'll include the data directly in the page
-const videoData = {
-  "student-concerts": {
-    "student-concert-1": {
-      title: "Student Concert Title 1",
-      embedUrl: "#", // Replace with actual embed URL
-      description: "Video description and more context regarding the video. Eu ut mollit nostrud quis sunt adipisicing adipisicing velit Lorem. Excepteur culpa eiusmod commodo cupidatat excepteur aute minim nulla. Ut cupidatat dolore laboris aute non id. Tempor nostrud eu dolore magna sunt id duis esse aute voluptate voluptate aliqua anim commodo mollit. Elit minim id nisi labore. Aute cupidatat cillum exercitation nulla do."
-    },
-    "student-concert-2": {
-      title: "Student Concert Title 2",
-      embedUrl: "#",
-      description: "Video description and more context regarding the video. Eu ut mollit nostrud quis sunt adipisicing adipisicing velit Lorem. Excepteur culpa eiusmod commodo cupidatat excepteur aute minim nulla. Ut cupidatat dolore laboris aute non id. Tempor nostrud eu dolore magna sunt id duis esse aute voluptate voluptate aliqua anim commodo mollit. Elit minim id nisi labore. Aute cupidatat cillum exercitation nulla do."
-    },
-    "student-concert-3": {
-      title: "Student Concert Title 3",
-      embedUrl: "#",
-      description: "Video description and more context regarding the video. Eu ut mollit nostrud quis sunt adipisicing adipisicing velit Lorem. Excepteur culpa eiusmod commodo cupidatat excepteur aute minim nulla. Ut cupidatat dolore laboris aute non id. Tempor nostrud eu dolore magna sunt id duis esse aute voluptate voluptate aliqua anim commodo mollit. Elit minim id nisi labore. Aute cupidatat cillum exercitation nulla do."
-    }
-  },
-  "classroom-videos": {
-    "classroom-1": {
-      title: "Classroom Video Title 1",
-      embedUrl: "#",
-      description: "Video description and more context regarding the video. Eu ut mollit nostrud quis sunt adipisicing adipisicing velit Lorem. Excepteur culpa eiusmod commodo cupidatat excepteur aute minim nulla. Ut cupidatat dolore laboris aute non id. Tempor nostrud eu dolore magna sunt id duis esse aute voluptate voluptate aliqua anim commodo mollit. Elit minim id nisi labore. Aute cupidatat cillum exercitation nulla do."
-    },
-    "classroom-2": {
-      title: "Classroom Video Title 2",
-      embedUrl: "#",
-      description: "Video description and more context regarding the video. Eu ut mollit nostrud quis sunt adipisicing adipisicing velit Lorem. Excepteur culpa eiusmod commodo cupidatat excepteur aute minim nulla. Ut cupidatat dolore laboris aute non id. Tempor nostrud eu dolore magna sunt id duis esse aute voluptate voluptate aliqua anim commodo mollit. Elit minim id nisi labore. Aute cupidatat cillum exercitation nulla do."
-    }
-  },
-  "flute-performances": {
-    "flute-1": {
-      title: "Flute Performance Title 1",
-      embedUrl: "#",
-      description: "Video description and more context regarding the video. Eu ut mollit nostrud quis sunt adipisicing adipisicing velit Lorem. Excepteur culpa eiusmod commodo cupidatat excepteur aute minim nulla. Ut cupidatat dolore laboris aute non id. Tempor nostrud eu dolore magna sunt id duis esse aute voluptate voluptate aliqua anim commodo mollit. Elit minim id nisi labore. Aute cupidatat cillum exercitation nulla do."
-    },
-    "flute-2": {
-      title: "Flute Performance Title 2",
-      embedUrl: "#",
-      description: "Video description and more context regarding the video. Eu ut mollit nostrud quis sunt adipisicing adipisicing velit Lorem. Excepteur culpa eiusmod commodo cupidatat excepteur aute minim nulla. Ut cupidatat dolore laboris aute non id. Tempor nostrud eu dolore magna sunt id duis esse aute voluptate voluptate aliqua anim commodo mollit. Elit minim id nisi labore. Aute cupidatat cillum exercitation nulla do."
-    },
-    "flute-3": {
-      title: "Flute Performance Title 3",
-      embedUrl: "#",
-      description: "Video description and more context regarding the video. Eu ut mollit nostrud quis sunt adipisicing adipisicing velit Lorem. Excepteur culpa eiusmod commodo cupidatat excepteur aute minim nulla. Ut cupidatat dolore laboris aute non id. Tempor nostrud eu dolore magna sunt id duis esse aute voluptate voluptate aliqua anim commodo mollit. Elit minim id nisi labore. Aute cupidatat cillum exercitation nulla do."
-    }
-  }
-};
-
-// This function is required for static generation of dynamic routes
-export function getStaticPaths() {
-  const paths = [];
+// Get all videos from the content collection
+export async function getStaticPaths() {
+  const videos = await getCollection('videos');
   
-  // Generate paths for all videos in all categories
-  Object.entries(videoData).forEach(([category, videos]) => {
-    Object.keys(videos).forEach((id) => {
-      paths.push({
-        params: { category, id }
-      });
-    });
+  return videos.map(video => {
+    const id = video.id.split('/').pop().split('.')[0];
+    return {
+      params: { 
+        category: video.data.category,
+        id: id
+      },
+      props: { video }
+    };
   });
-  
-  return paths;
 }
 
-// Get the category and id from the URL
-const { category, id } = Astro.params;
+// Get the video data from props
+const { video } = Astro.props;
+const { Content } = await video.render();
 
-// Get the specific video data
-const video = videoData[category]?.[id];
-
-// If video doesn't exist, we could handle a 404 here
-// For this example, we'll just use placeholder data if not found
-const videoTitle = video?.title || "Video Not Found";
-const videoEmbed = video?.embedUrl || "#";
-const videoDescription = video?.description || "This video could not be found.";
+// Get values from the content collection
+const videoTitle = video.data.title;
+const videoEmbed = video.data.embedUrl || "#";
 ---
 
 <Layout title={`${videoTitle} | Music Education | Kaitlin Isaac`}>
@@ -104,9 +50,9 @@ const videoDescription = video?.description || "This video could not be found.";
       [embedded video]
     </div>
     
-    <!-- Video Description -->
+    <!-- Video Content -->
     <div class="prose max-w-none">
-      <p>{videoDescription}</p>
+      <Content />
     </div>
   </main>
 </Layout> 

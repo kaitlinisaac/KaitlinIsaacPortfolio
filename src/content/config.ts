@@ -23,6 +23,33 @@ const blogCollection = defineCollection({
   }),
 });
 
+const lessonsCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    thumbnail: z.string().optional(),
+    downloadUrl: z.string().optional(),
+    category: z.string(),
+    tags: z.array(z.string()).optional(),
+    imageUrl: z.string().optional(),
+    draft: z.boolean().optional(),
+  }),
+});
+
+const videosCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    embedUrl: z.string().optional(),
+    thumbnail: z.string().optional(),
+    category: z.string(),
+    tags: z.array(z.string()).optional(),
+    draft: z.boolean().optional(),
+  }),
+});
+
 const projectsCollection = defineCollection({
   type: 'content',
   schema: z.object({
@@ -39,6 +66,8 @@ export const collections = {
   'writing': writingCollection,
   'blog': blogCollection,
   'projects': projectsCollection,
+  'lessons': lessonsCollection,
+  'videos': videosCollection,
   artifacts: defineCollection({
     schema: z.object({
       title: z.string(),
