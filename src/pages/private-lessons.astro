@@ -3,7 +3,6 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Section from '../components/Section.astro';
 import Heading from '../components/Heading.astro';
-import EmailCTA from '../components/EmailCTA.astro';
 ---
 
 <Layout title="Private Lessons | Kaitlin Isaac">
@@ -19,10 +18,23 @@ import EmailCTA from '../components/EmailCTA.astro';
       </Heading>
       
       <p class="text-lg leading-relaxed">
-        I offer personalized music instruction for students of all ages and skill levels. 
+        I offer personalized music instruction for students of all ages and skill levels. Originally from the Rochester area, I'm excited to be back in the state after 
+        attending high school and university in Virginia. I am passionate about making music accessible to all.
         My lessons are tailored to each student's goals, learning style, and musical interests, 
         ensuring an engaging and effective learning experience.
       </p>
+
+      <div class="flex justify-center mt-6">
+        <a 
+          href="https://www.canva.com/design/DAGPPh6aJxE/Yp40YZhfG01SeT2UvMPtRg/view" 
+          class="bg-primary bg-opacity-30 px-6 py-3 rounded-full no-underline-link flex items-center gap-2"
+          target="_blank" 
+          rel="noopener noreferrer"
+        >
+          <span>View My Full Flutist Bio</span>
+          <span class="text-lg">→</span>
+        </a>
+      </div>
     </section>
 
     <!-- Instruments Section -->
@@ -34,27 +46,27 @@ import EmailCTA from '../components/EmailCTA.astro';
         
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
           <div class="bg-surface-muted dark:bg-dark-surface-muted p-6 rounded-lg">
-            <h3 class="font-medium text-h4 mb-3">Woodwinds</h3>
+            <Heading level={3} class="mb-3" useBgStyle={false}>
+              Woodwinds
+            </Heading>
             <ul class="list-disc pl-6 space-y-1">
-              <li>Flute</li>
-              <li>Clarinet</li>
-              <li>Saxophone</li>
+              <li><strong>Flute</strong> (all levels)</li>
+              <li>Clarinet (beginners)</li>
+              <li>Saxophone (beginners)</li>
             </ul>
           </div>
           <div class="bg-surface-muted dark:bg-dark-surface-muted p-6 rounded-lg">
-            <h3 class="font-medium text-h4 mb-3">Brass</h3>
+            <Heading level={3} class="mb-3" useBgStyle={false}>
+              Brass
+            </Heading>
             <ul class="list-disc pl-6 space-y-1">
-              <li>Trumpet</li>
-              <li>Trombone</li>
-              <li>French Horn</li>
+              <li>Trumpet (beginners)</li>
+              <li>Trombone (beginners)</li>
             </ul>
           </div>
         </div>
         
-        <p class="text-body leading-relaxed mt-6">
-          Not sure which instrument is right for you or your child? Contact me for a consultation, 
-          and I'll help you find the perfect match based on interests, physical attributes, and musical goals.
-        </p>
+    
       </div>
     </Section>
 
@@ -74,53 +86,9 @@ import EmailCTA from '../components/EmailCTA.astro';
         </ul>
         
         <p class="text-body leading-relaxed mt-4">
-          Lessons are typically 30, 45, or 60 minutes in length, depending on the student's age, 
-          experience level, and goals. I offer both in-person and virtual lessons to accommodate different preferences and schedules.
+          Lessons are typically 30 or 60 minutes in length.
+         Lessons take place in my home studio in Williamsville. Parents are welcome to attend.
         </p>
-      </div>
-    </Section>
-
-    <!-- Rates Section -->
-    <Section title="Rates & Policies" backgroundColor="secondary">
-      <div class="space-y-md">
-        <div class="overflow-x-auto">
-          <table class="min-w-full bg-surface dark:bg-dark-surface rounded-lg overflow-hidden">
-            <thead class="bg-primary bg-opacity-10 dark:bg-opacity-20">
-              <tr>
-                <th class="px-6 py-3 text-left text-small font-medium">Lesson Length</th>
-                <th class="px-6 py-3 text-left text-small font-medium">Single Lesson</th>
-                <th class="px-6 py-3 text-left text-small font-medium">Monthly Package (4 lessons)</th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-surface-muted dark:divide-dark-surface-muted">
-              <tr>
-                <td class="px-6 py-4 whitespace-nowrap">30 minutes</td>
-                <td class="px-6 py-4 whitespace-nowrap">$30</td>
-                <td class="px-6 py-4 whitespace-nowrap">$110 ($27.50/lesson)</td>
-              </tr>
-              <tr>
-                <td class="px-6 py-4 whitespace-nowrap">45 minutes</td>
-                <td class="px-6 py-4 whitespace-nowrap">$45</td>
-                <td class="px-6 py-4 whitespace-nowrap">$165 ($41.25/lesson)</td>
-              </tr>
-              <tr>
-                <td class="px-6 py-4 whitespace-nowrap">60 minutes</td>
-                <td class="px-6 py-4 whitespace-nowrap">$60</td>
-                <td class="px-6 py-4 whitespace-nowrap">$220 ($55/lesson)</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        
-        <div class="mt-6 space-y-4">
-          <h3 class="text-h4 font-medium">Policies</h3>
-          <ul class="list-disc pl-6 space-y-2">
-            <li>24-hour cancellation notice required to avoid being charged for the lesson</li>
-            <li>Makeup lessons available within the same month for timely cancellations</li>
-            <li>Monthly packages must be used within the calendar month</li>
-            <li>Payment accepted via Venmo, PayPal, or cash before each lesson or at the beginning of the month for packages</li>
-          </ul>
-        </div>
       </div>
     </Section>
 
@@ -131,7 +99,16 @@ import EmailCTA from '../components/EmailCTA.astro';
           Ready to begin your musical journey? Contact me to schedule a consultation or your first lesson.
         </p>
         
-        <EmailCTA />
+        <div class="flex justify-center mt-6">
+          <a 
+            href="/contact" 
+            class="bg-primary px-6 py-3 rounded-full no-underline-link flex items-center gap-2 text-content"
+            aria-label="Go to contact page"
+          >
+            <span>Contact Me</span>
+            <span class="text-lg">→</span>
+          </a>
+        </div>
       </div>
     </Section>
   </main>

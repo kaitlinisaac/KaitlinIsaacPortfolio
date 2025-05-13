@@ -3,10 +3,10 @@ import Heading from './Heading.astro';
 
 interface Props {
   title: string;
-  backgroundColor: 'primary' | 'secondary' | 'accent' | 'accent-yellow';
+  backgroundColor?: 'primary' | 'secondary' | 'accent' | 'accent-yellow';
 }
 
-const { title, backgroundColor } = Astro.props;
+const { title, backgroundColor = 'accent' } = Astro.props;
 
 const bgColorMap = {
   primary: 'bg-primary/10 dark:bg-primary/20',
@@ -15,14 +15,14 @@ const bgColorMap = {
   'accent-yellow': 'bg-accent-yellow/10 dark:bg-accent-yellow/20'
 };
 ---
-<section>
+<section class="mb-16">
   <Heading 
     level={2} 
-    class={`text-h2 font-bold mb-lg p-sm inline-block ${bgColorMap[backgroundColor]} text-content dark:text-dark-content rounded-lg focus-ring`}
+    class="mb-lg"
   >
     {title}
   </Heading>
-  <div class="">
+  <div class="mt-6">
     <slot />
   </div>
 </section>

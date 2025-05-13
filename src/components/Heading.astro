@@ -2,12 +2,27 @@
 interface Props {
   level: 1 | 2 | 3 | 4 | 5 | 6;
   class?: string;
+  useBgStyle?: boolean;
 }
 
-const { level, class: className = '' } = Astro.props;
+const { level, class: className = '', useBgStyle = true } = Astro.props;
 
 // Dynamically create the heading element based on level
 const Tag = `h${level}` as keyof HTMLElementTagNameMap;
+
+// Set default text size based on heading level
+const headingSizes = {
+  1: 'text-h1',
+  2: 'text-h2',
+  3: 'text-h3',
+  4: 'text-h4',
+  5: 'text-body font-bold',
+  6: 'text-body font-medium'
+};
+
+// Add the yellow background styling if useBgStyle is true
+const bgStyle = useBgStyle ? 'bg-accent inline-block px-6 py-2 rounded-md text-gray-700' : '';
+const textSize = headingSizes[level];
 ---
 
 <Tag 
@@ -18,7 +33,7 @@ const Tag = `h${level}` as keyof HTMLElementTagNameMap;
       .replace(/(^-|-$)/g, '') 
     : undefined
   } 
-  class={`focus:outline-none focus:ring-2 focus:ring-accent-light focus:ring-offset-2 rounded-sm ${className}`}
+  class={`focus:outline-none focus:ring-2 focus:ring-accent-light focus:ring-offset-2 rounded-sm ${textSize} ${bgStyle} ${className}`}
   tabindex="-1"
 >
   <slot />

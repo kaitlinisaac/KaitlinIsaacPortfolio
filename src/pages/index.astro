@@ -5,10 +5,10 @@ import Section from '../components/Section.astro';
 import Heading from '../components/Heading.astro';
 import ArrowLink from '../components/ArrowLink.astro';
 
+// Define the roles with a dot separator
 const roles = [
-  { text: "Music Educator", color: "bg-primary" },
-  { text: "UX Designer", color: "bg-primary" },
-  { text: "Crochet Artist", color: "bg-primary" }
+  { text: "music educator" },
+  { text: "techy designer" }
 ];
 
 const highlights = [
@@ -28,124 +28,71 @@ const highlights = [
 
 ---
 
-<Layout title="Kaitlin Isaac - Music Educator & UX Designer">
+<Layout title="Kaitlin Isaac - Music Educator & Designer">
   <Header />
-  <main id="main" class="max-w-2xl mx-auto px-6 md:px-8 py-16 space-y-16">
-    <!-- Hero Section -->
-    <section class="space-y-6 max-w-2xl">
-      <Heading 
-        level={1}
-        class="sr-only"
-      >
-        Kaitlin Isaac
-      </Heading>
-
-      <div class="w-56 h-56 mx-auto mb-8">
+  
+  <main id="main" class="max-w-md mx-auto px-6 py-8">
+    <!-- Hero Section with profile image and roles -->
+    <section class="flex flex-col items-center text-center">
+      <div class="w-36 h-36 mb-6">
         <img
           src="/kaitlinsquare.jpeg"
-          alt="Portrait of Kaitlin Isaac"
-          width="250"
-          height="250"
+          alt="Profile picture of Kaitlin Isaac"
+          width="144"
+          height="144"
           loading="eager"
           decoding="async"
-          class="w-full h-full object-cover rounded-full"
+          class="w-full h-full object-cover rounded-full bg-surface-muted"
         />
       </div>
-
-      <div class="flex justify-center">
-        <div class="flex items-center gap-3">
-          {roles.map((role, index) => (
-            <>
-              <span class="text-lg text-content-muted dark:text-dark-content-muted">
-                {role.text}
-              </span>
-              {index < roles.length - 1 && (
-                <span 
-                  class={`w-2 h-2 rounded-full ${role.color} animate-pulse`}
-                  aria-hidden="true"
-                ></span>
-              )}
-            </>
-          ))}
-        </div>
-      </div>
       
-      <p class="text-lg leading-relaxed">
-        I'm a passionate <strong>music educator</strong> and <strong>UX designer</strong> with a love for creating 
-        engaging experiences, both in the classroom and in digital spaces.
-      </p>
-        
-      <p class="text-lg leading-relaxed">
-        My unique background bridges the gap between music education and digital design, allowing me to approach problems 
-        with creativity and empathy. I believe in crafting experiences that are accessible, intuitive, and 
-        <em>bring joy to people's lives</em>.
-      </p>
-    </section>
-
-    <!-- Professional Highlights -->
-    <Section title="What I Do" backgroundColor="primary">
-      <div class="space-y-lg max-w-2xl">
-        {highlights.map(({ title, org, orgUrl, description }) => (
-          <div class="space-y-sm group">
-            <div class="flex items-baseline gap-2">
-              <Heading level={3} class="text-h4 font-medium">{title}</Heading>
-              <a 
-                href={orgUrl}
-                class="text-h4 text-content-muted dark:text-dark-content-muted underline decoration-1 underline-offset-4 hover:decoration-2 focus:decoration-2 hover:text-accent focus:text-accent transition-all"
-              >
-                {org}
-              </a>
-            </div>
-            <p 
-              class="text-body text-content-muted dark:text-dark-content-muted leading-relaxed [&_a]:text-content-muted [&_a]:dark:text-dark-content-muted [&_a]:underline [&_a]:decoration-1 [&_a]:underline-offset-4 [&_a]:hover:decoration-2 [&_a]:focus:decoration-2 [&_a]:hover:text-accent [&_a]:focus:text-accent [&_a]:transition-all" 
-              set:html={description} 
-            />
-          </div>
+      <!-- Roles with dot separator -->
+      <div class="flex items-center justify-center gap-2 mb-6">
+        {roles.map((role, index) => (
+          <>
+            <span class="text-body text-content-muted dark:text-dark-content-muted">
+              {role.text}
+            </span>
+            {index < roles.length - 1 && (
+              <span 
+                class="w-2 h-2 rounded-full bg-primary"
+                aria-hidden="true"
+              ></span>
+            )}
+          </>
         ))}
       </div>
-    </Section>
-
-    <!-- Hobbies Section -->
-    <Section title="Beyond Work" backgroundColor="accent">
-      <div class="space-y-md">
-        <p class="text-body leading-relaxed">
-          When I'm not teaching or designing, you can find me:
-        </p>
+      
+      <!-- Placeholder text paragraph -->
+      <p class="body-text mb-12 text-center">
+        Occaecat ullamco pariatur officia nisi consequat. Nostrud eu qui culpa in fugiat qui magna. Consectetur sit ea labore qui dolore mollit velit exercitation fugiat irure commodo proident. Id laboris cillum anim ipsum aliquip consectetur laborum minim adipisicing fugiat aliqua ullamco ex.
+      </p>
+      
+      <!-- Action buttons -->
+      <div class="flex justify-between w-full mt-8">
+        <a href="/resume" class="flex items-center justify-center flex-col no-underline-link">
+          <div class="w-20 h-20 rounded-full bg-primary flex items-center justify-center mb-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-content">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <path d="M14 2v6h6"></path>
+              <path d="M16 13H8"></path>
+              <path d="M16 17H8"></path>
+              <path d="M10 9H8"></path>
+            </svg>
+          </div>
+          <span class="text-small">download my resume</span>
+        </a>
         
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div class="bg-surface-muted dark:bg-dark-surface-muted p-6 rounded-lg">
-            <h3 class="font-medium text-h4 mb-3">Crocheting</h3>
-            <p>Creating beautiful, handcrafted items and translating pixel art into crochet patterns.</p>
+        <a href="/contact" class="flex items-center justify-center flex-col no-underline-link">
+          <div class="w-20 h-20 rounded-full bg-primary flex items-center justify-center mb-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-content">
+              <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+            </svg>
           </div>
-          <div class="bg-surface-muted dark:bg-dark-surface-muted p-6 rounded-lg">
-            <h3 class="font-medium text-h4 mb-3">Gardening</h3>
-            <p>Growing flowers, herbs, and vegetables in my garden and connecting with nature.</p>
-          </div>
-          <div class="bg-surface-muted dark:bg-dark-surface-muted p-6 rounded-lg">
-            <h3 class="font-medium text-h4 mb-3">Gaming</h3>
-            <p>Playing Stardew Valley and taking on challenges like completing the Community Center in Year One.</p>
-          </div>
-        </div>
+          <span class="text-small">let's get in touch</span>
+        </a>
       </div>
-    </Section>
-
-    <!-- Quick Links -->
-    <section id="lets-connect">
-      <h2 class="sr-only">Let's Connect</h2>
-      <nav class="flex flex-wrap gap-6" aria-label="Quick links">
-        <ArrowLink href="/music-education">
-          Music Education
-        </ArrowLink>
-        <ArrowLink href="/design">
-          Design Work
-        </ArrowLink>
-        <ArrowLink href="/blog">
-          Read my blog
-        </ArrowLink>
-        <ArrowLink href="/contact">
-          Contact me
-        </ArrowLink>
-      </nav>
     </section>
   </main>
 </Layout>

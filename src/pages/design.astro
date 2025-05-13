@@ -6,85 +6,81 @@ import Heading from '../components/Heading.astro';
 import Card from '../components/Card.astro';
 ---
 
-<Layout title="Design | Kaitlin Isaac">
+<Layout title="Design Work | Kaitlin Isaac">
   <Header />
-  <main id="main" class="max-w-2xl mx-auto px-6 md:px-8 py-16 space-y-16">
-    <!-- Hero Section -->
-    <section class="space-y-6 max-w-2xl">
+  <main id="main" class="max-w-md mx-auto px-6 py-8">
+    <!-- Page Title -->
+    <Heading 
+      level={1}
+      class="mb-4"
+    >
+      design work
+    </Heading>
+    
+    <!-- Philosophy Statement -->
+    <div class="bg-primary bg-opacity-10 rounded-lg p-6 mb-8">
+      <p class="body-text text-center">
+        My design philosophy draws deeply from my experiences as an educator. Data-driven 
+        decisions have been my compass, ensuring equity and transparency. While predictability 
+        structures the experience, it's the creativity within that structure which keeps it vibrant 
+        and engaging. Whether it's in the classroom or at my desk, the end goal remains the 
+        same: design experiences that resonate, inform, and inspire.
+      </p>
+    </div>
+    
+    <!-- Recent Projects Section -->
+    <div class="mb-8">
       <Heading 
-        level={1}
-        class="text-center"
+        level={2}
+        class="mb-6"
       >
-        Design Portfolio
+        Recent Projects
       </Heading>
       
-      <p class="text-lg leading-relaxed">
-        As a UX designer, I create thoughtful, accessible digital experiences that center around user needs. 
-        My approach combines analytical thinking with creative problem-solving to design interfaces that are 
-        both functional and delightful to use.
-      </p>
-    </section>
-
-    <!-- Design Philosophy Section -->
-    <Section title="My Design Approach" backgroundColor="secondary">
-      <div class="space-y-md">
-        <p class="text-body leading-relaxed">
-          I believe in designing with empathy, inclusivity, and accessibility at the forefront. Having transitioned from 
-          music education to UX design, I bring a unique perspective on creating experiences that educate, engage, and inspire.
-        </p>
+      <div class="space-y-4">
+        <!-- Project Card 1 -->
+        <div class="border border-primary rounded-lg p-4 flex items-center">
+          <div class="w-14 h-14 bg-gray-300 rounded-full mr-4 flex-shrink-0"></div>
+          <div>
+            <p class="body-text">
+              Cillum officia amet velit in cillum id eiusmod nulla pariatur mollit id magna. Exercitation ut qui non exercitation mollit do sunt aliqua...
+            </p>
+          </div>
+        </div>
         
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-          <div class="bg-surface-muted dark:bg-dark-surface-muted p-6 rounded-lg">
-            <h3 class="font-medium text-h4 mb-3">User-Centered</h3>
-            <p>I design solutions based on deep understanding of user needs, behaviors, and pain points.</p>
+        <!-- Project Card 2 -->
+        <div class="border border-primary rounded-lg p-4 flex items-center">
+          <div class="w-14 h-14 bg-gray-300 rounded-full mr-4 flex-shrink-0"></div>
+          <div>
+            <p class="body-text">
+              Cillum officia amet velit in cillum id eiusmod nulla pariatur mollit id magna. Exercitation ut qui non exercitation mollit do sunt aliqua...
+            </p>
           </div>
-          <div class="bg-surface-muted dark:bg-dark-surface-muted p-6 rounded-lg">
-            <h3 class="font-medium text-h4 mb-3">Accessible</h3>
-            <p>I create designs that work for everyone, regardless of their abilities or how they access digital content.</p>
-          </div>
-          <div class="bg-surface-muted dark:bg-dark-surface-muted p-6 rounded-lg">
-            <h3 class="font-medium text-h4 mb-3">Intuitive</h3>
-            <p>My interfaces are straightforward, consistent, and require minimal cognitive load to navigate.</p>
-          </div>
-          <div class="bg-surface-muted dark:bg-dark-surface-muted p-6 rounded-lg">
-            <h3 class="font-medium text-h4 mb-3">Purposeful</h3>
-            <p>Every element in my designs serves a clear purpose and contributes to the overall user experience.</p>
+        </div>
+        
+        <!-- Project Card 3 -->
+        <div class="border border-primary rounded-lg p-4 flex items-center">
+          <div class="w-14 h-14 bg-gray-300 rounded-full mr-4 flex-shrink-0"></div>
+          <div>
+            <p class="body-text">
+              Cillum officia amet velit in cillum id eiusmod nulla pariatur mollit id magna. Exercitation ut qui non exercitation mollit do sunt aliqua...
+            </p>
           </div>
         </div>
       </div>
-    </Section>
-
-    <!-- Featured Projects Section -->
-    <Section title="Featured Projects" backgroundColor="primary">
-      <div class="space-y-lg">
-        <p class="text-body leading-relaxed mb-8">
-          Here are some selected projects that showcase my design process and problem-solving approach.
-        </p>
-        
-        <div class="grid grid-cols-1 gap-8">
-          <Card>
-            <div class="space-y-4">
-              <h3 class="text-h3 font-medium">Music Education App</h3>
-              <p>A mobile application designed to help band students practice effectively at home, providing structured guidance and feedback.</p>
-              <p class="text-sm text-content-muted dark:text-dark-content-muted">UX Research · Wireframing · Prototyping</p>
-              <div class="h-48 bg-surface-muted dark:bg-dark-surface-muted rounded-md flex items-center justify-center">
-                <p class="text-content-muted">Project image coming soon</p>
-              </div>
-            </div>
-          </Card>
-          
-          <Card>
-            <div class="space-y-4">
-              <h3 class="text-h3 font-medium">Accessibility Audit Tool</h3>
-              <p>A web application that helps developers identify and fix accessibility issues in their websites.</p>
-              <p class="text-sm text-content-muted dark:text-dark-content-muted">UX Design · UI Development · Accessibility</p>
-              <div class="h-48 bg-surface-muted dark:bg-dark-surface-muted rounded-md flex items-center justify-center">
-                <p class="text-content-muted">Project image coming soon</p>
-              </div>
-            </div>
-          </Card>
-        </div>
-      </div>
-    </Section>
+    </div>
+    
+    <!-- GitHub Button -->
+    <div class="flex justify-center mt-10">
+      <a 
+        href="https://github.com/kaitlinisaac" 
+        class="bg-primary bg-opacity-30 px-6 py-3 rounded-full no-underline-link flex items-center gap-2"
+        target="_blank" 
+        rel="noopener noreferrer"
+      >
+        <span>Check Out My GitHub</span>
+        <span class="text-lg">→</span>
+      </a>
+    </div>
   </main>
 </Layout> 
