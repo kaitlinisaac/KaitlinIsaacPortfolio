@@ -7,98 +7,105 @@ import Heading from '../../components/Heading.astro';
 
 <Layout title="Music Education | Kaitlin Isaac">
   <Header />
-  <main id="main" class="max-w-2xl mx-auto px-6 md:px-8 py-8 space-y-8">
-    <!-- Teaching Philosophy Section -->
-    <section>
-      <div class="bg-primary bg-opacity-20 p-6 rounded-lg">
-        <h2 class="text-h3 font-medium mb-4">Teaching Philosophy</h2>
-        <div class="space-y-md">
-          <p class="text-body leading-relaxed">
-            I believe that music education is essential for the complete development of every child. Music teaches 
-            creativity, discipline, teamwork, and provides a unique way to express emotions and ideas.
-          </p>
-          
-          <p class="text-body leading-relaxed">
-            My approach incorporates:
-          </p>
-          
-          <ul class="list-disc pl-6 space-y-2">
-            <li>Student-centered learning experiences</li>
-            <li>Culturally responsive teaching methods</li>
-            <li>Integration of technology when appropriate</li>
-            <li>Focus on both individual growth and ensemble skills</li>
-            <li>Creating a safe, supportive learning environment</li>
-          </ul>
-        </div>
-      </div>
+  <main id="main" class="max-w-2xl mx-auto px-6 md:px-8 py-16 space-y-16">
+    <!-- Hero Section -->
+    <section class="space-y-6 max-w-2xl">
+      <Heading 
+        level={1}
+      >
+        Music Education
+      </Heading>
+      
+      <p class="text-lg leading-relaxed">
+        I've dedicated my career to music education, with a focus on helping students of all backgrounds 
+        discover their musical talents and develop a lifelong appreciation for music.
+      </p>
     </section>
 
-    <!-- Lessons & Materials Section -->
-    <section>
-      <div class="bg-accent bg-opacity-30 p-4 rounded-lg">
-        <h2 class="text-h3 font-medium mb-4">Lessons & Materials</h2>
+    <!-- Teaching Philosophy Section -->
+    <Section title="Teaching Philosophy" backgroundColor="primary">
+      <div class="space-y-md">
+        <p class="text-body leading-relaxed">
+          I believe that music education is essential for the complete development of every child. Music teaches 
+          creativity, discipline, teamwork, and provides a unique way to express emotions and ideas.
+        </p>
         
-        <div class="space-y-4">
-          <!-- Lesson Card 1 -->
-          <div class="bg-surface rounded-lg p-4 flex items-start gap-4 shadow-sm">
-            <div class="w-12 h-12 bg-gray-200 rounded-full flex-shrink-0"></div>
-            <div>
-              <h3 class="font-medium">Beginning Band: First Notes</h3>
-              <p class="text-sm text-content-muted">Tips for helping students produce their first sounds on wind instruments...</p>
-            </div>
+        <p class="text-body leading-relaxed">
+          My approach incorporates:
+        </p>
+        
+        <ul class="list-disc pl-6 space-y-2">
+          <li>Student-centered learning experiences</li>
+          <li>Culturally responsive teaching methods</li>
+          <li>Integration of technology when appropriate</li>
+          <li>Focus on both individual growth and ensemble skills</li>
+          <li>Creating a safe, supportive learning environment</li>
+        </ul>
+      </div>
+    </Section>
+
+    <!-- Lessons & Materials Section -->
+    <Section title="Lessons & Materials" backgroundColor="accent">
+      <div class="space-y-6">
+        <!-- Lesson Card 1 -->
+        <div class="bg-surface rounded-lg p-6 flex items-start gap-4 shadow-sm">
+          <div class="w-16 h-16 bg-gray-200 rounded-full flex-shrink-0"></div>
+          <div>
+            <h3 class="font-medium text-lg mb-2">Beginning Band: First Notes</h3>
+            <p class="text-body">Tips for helping students produce their first sounds on wind instruments...</p>
           </div>
-          
-          <!-- Lesson Card 2 -->
-          <div class="bg-surface rounded-lg p-4 flex items-start gap-4 shadow-sm">
-            <div class="w-12 h-12 bg-gray-200 rounded-full flex-shrink-0"></div>
-            <div>
-              <h3 class="font-medium">Rhythm Basics: Quarter & Eighth Notes</h3>
-              <p class="text-sm text-content-muted">Interactive activities to help students understand rhythm patterns...</p>
-            </div>
+        </div>
+        
+        <!-- Lesson Card 2 -->
+        <div class="bg-surface rounded-lg p-6 flex items-start gap-4 shadow-sm">
+          <div class="w-16 h-16 bg-gray-200 rounded-full flex-shrink-0"></div>
+          <div>
+            <h3 class="font-medium text-lg mb-2">Rhythm Basics: Quarter & Eighth Notes</h3>
+            <p class="text-body">Interactive activities to help students understand rhythm patterns...</p>
           </div>
         </div>
         
         <!-- See All Button -->
-        <div class="flex justify-end mt-4">
-          <a href="/music-education/lessons" class="bg-primary text-content px-6 py-2 rounded-full text-sm font-medium hover:bg-primary-dark transition-colors">
-            see all →
+        <div class="mt-6">
+          <a href="/music-education/lessons" class="bg-primary text-content px-6 py-3 rounded-full font-medium hover:bg-primary-dark transition-colors w-fit inline-flex items-center gap-2">
+            <span>See All Lessons</span>
+            <span class="text-lg">→</span>
           </a>
         </div>
       </div>
-    </section>
+    </Section>
 
     <!-- Videos Section -->
-    <section>
-      <div class="bg-accent bg-opacity-30 p-4 rounded-lg">
-        <h2 class="text-h3 font-medium mb-4">Videos</h2>
-        
-        <div class="grid grid-cols-3 gap-2">
+    <Section title="Videos" backgroundColor="secondary">
+      <div class="space-y-6">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
           <!-- Video Thumbnail 1 -->
           <div>
-            <div class="aspect-video bg-gray-200 rounded-md mb-1"></div>
-            <p class="text-xs text-center font-medium">Student Concerts</p>
+            <div class="aspect-video bg-gray-200 rounded-md mb-3"></div>
+            <p class="font-medium text-center">Student Concerts</p>
           </div>
           
           <!-- Video Thumbnail 2 -->
           <div>
-            <div class="aspect-video bg-gray-200 rounded-md mb-1"></div>
-            <p class="text-xs text-center font-medium">Classroom Videos</p>
+            <div class="aspect-video bg-gray-200 rounded-md mb-3"></div>
+            <p class="font-medium text-center">Classroom Videos</p>
           </div>
           
           <!-- Video Thumbnail 3 -->
           <div>
-            <div class="aspect-video bg-gray-200 rounded-md mb-1"></div>
-            <p class="text-xs text-center font-medium">Flute Performances</p>
+            <div class="aspect-video bg-gray-200 rounded-md mb-3"></div>
+            <p class="font-medium text-center">Flute Performances</p>
           </div>
         </div>
         
         <!-- See All Button -->
-        <div class="flex justify-end mt-4">
-          <a href="/music-education/videos" class="bg-primary text-content px-6 py-2 rounded-full text-sm font-medium hover:bg-primary-dark transition-colors">
-            see all →
+        <div class="mt-6">
+          <a href="/music-education/videos" class="bg-primary text-content px-6 py-3 rounded-full font-medium hover:bg-primary-dark transition-colors w-fit inline-flex items-center gap-2">
+            <span>See All Videos</span>
+            <span class="text-lg">→</span>
           </a>
         </div>
       </div>
-    </section>
+    </Section>
   </main>
 </Layout> 

@@ -8,73 +8,67 @@ import Card from '../components/Card.astro';
 
 <Layout title="Design Work | Kaitlin Isaac">
   <Header />
-  <main id="main" class="max-w-md mx-auto px-6 py-8">
+  <main id="main" class="max-w-2xl mx-auto px-6 md:px-8 py-16 space-y-16">
     <!-- Page Title -->
-    <Heading 
-      level={1}
-      class="mb-4"
-    >
-      design work
-    </Heading>
-    
-    <!-- Philosophy Statement -->
-    <div class="bg-primary bg-opacity-10 rounded-lg p-6 mb-8">
-      <p class="body-text text-center">
-        My design philosophy draws deeply from my experiences as an educator. Data-driven 
-        decisions have been my compass, ensuring equity and transparency. While predictability 
-        structures the experience, it's the creativity within that structure which keeps it vibrant 
-        and engaging. Whether it's in the classroom or at my desk, the end goal remains the 
-        same: design experiences that resonate, inform, and inspire.
-      </p>
-    </div>
-    
-    <!-- Recent Projects Section -->
-    <div class="mb-8">
+    <section class="space-y-6 max-w-2xl">
       <Heading 
-        level={2}
-        class="mb-6"
+        level={1}
       >
-        Recent Projects
+        design work
       </Heading>
       
-      <div class="space-y-4">
+      <!-- Philosophy Statement -->
+      <div class="bg-primary bg-opacity-10 rounded-lg p-6">
+        <p class="text-lg leading-relaxed">
+          My design philosophy draws deeply from my experiences as an educator. Data-driven 
+          decisions have been my compass, ensuring equity and transparency. While predictability 
+          structures the experience, it's the creativity within that structure which keeps it vibrant 
+          and engaging. Whether it's in the classroom or at my desk, the end goal remains the 
+          same: design experiences that resonate, inform, and inspire.
+        </p>
+      </div>
+    </section>
+    
+    <!-- Recent Projects Section -->
+    <Section title="Recent Projects">
+      <div class="space-y-6">
         <!-- Project Card 1 -->
-        <div class="border border-primary rounded-lg p-4 flex items-center">
-          <div class="w-14 h-14 bg-gray-300 rounded-full mr-4 flex-shrink-0"></div>
+        <div class="border border-primary rounded-lg p-6 flex items-center">
+          <div class="w-16 h-16 bg-gray-300 rounded-full mr-6 flex-shrink-0"></div>
           <div>
-            <p class="body-text">
+            <p class="text-lg leading-relaxed">
               Cillum officia amet velit in cillum id eiusmod nulla pariatur mollit id magna. Exercitation ut qui non exercitation mollit do sunt aliqua...
             </p>
           </div>
         </div>
         
         <!-- Project Card 2 -->
-        <div class="border border-primary rounded-lg p-4 flex items-center">
-          <div class="w-14 h-14 bg-gray-300 rounded-full mr-4 flex-shrink-0"></div>
+        <div class="border border-primary rounded-lg p-6 flex items-center">
+          <div class="w-16 h-16 bg-gray-300 rounded-full mr-6 flex-shrink-0"></div>
           <div>
-            <p class="body-text">
+            <p class="text-lg leading-relaxed">
               Cillum officia amet velit in cillum id eiusmod nulla pariatur mollit id magna. Exercitation ut qui non exercitation mollit do sunt aliqua...
             </p>
           </div>
         </div>
         
         <!-- Project Card 3 -->
-        <div class="border border-primary rounded-lg p-4 flex items-center">
-          <div class="w-14 h-14 bg-gray-300 rounded-full mr-4 flex-shrink-0"></div>
+        <div class="border border-primary rounded-lg p-6 flex items-center">
+          <div class="w-16 h-16 bg-gray-300 rounded-full mr-6 flex-shrink-0"></div>
           <div>
-            <p class="body-text">
+            <p class="text-lg leading-relaxed">
               Cillum officia amet velit in cillum id eiusmod nulla pariatur mollit id magna. Exercitation ut qui non exercitation mollit do sunt aliqua...
             </p>
           </div>
         </div>
       </div>
-    </div>
+    </Section>
     
     <!-- GitHub Button -->
-    <div class="flex justify-center mt-10">
+    <div class="mt-10">
       <a 
         href="https://github.com/kaitlinisaac" 
-        class="bg-primary bg-opacity-30 px-6 py-3 rounded-full no-underline-link flex items-center gap-2"
+        class="bg-primary bg-opacity-30 px-6 py-3 rounded-full no-underline-link flex items-center gap-2 w-fit"
         target="_blank" 
         rel="noopener noreferrer"
       >

@@ -60,16 +60,6 @@ const posts = [
       </p>
     </section>
 
-    <!-- Categories Section -->
-    <Section title="Categories" backgroundColor="secondary">
-      <div class="flex flex-wrap gap-4">
-        <a href="/blog/category/music-education" class="tag tag-primary">Music Education</a>
-        <a href="/blog/category/design" class="tag tag-secondary">Design</a>
-        <a href="/blog/category/private-lessons" class="tag tag-accent">Private Lessons</a>
-        <a href="/blog/category/personal" class="tag tag-primary">Personal</a>
-      </div>
-    </Section>
-
     <!-- Recent Posts Section -->
     <Section title="Recent Posts" backgroundColor="primary">
       <div class="space-y-lg">
@@ -82,35 +72,6 @@ const posts = [
             slug={post.slug}
           />
         ))}
-      </div>
-    </Section>
-
-    <!-- Newsletter Section -->
-    <Section title="Stay Updated" backgroundColor="accent">
-      <div class="space-y-md">
-        <p class="text-body leading-relaxed">
-          Subscribe to my newsletter to receive new blog posts, resources, and updates directly in your inbox.
-        </p>
-        
-        <form class="mt-6 space-y-4">
-          <div>
-            <label for="email" class="block text-small font-medium mb-1">Email Address</label>
-            <input 
-              type="email" 
-              id="email" 
-              name="email" 
-              placeholder="your@email.com" 
-              class="w-full px-4 py-2 rounded-lg border border-surface-muted bg-surface dark:bg-dark-surface focus:ring-2 focus:ring-primary focus:border-transparent"
-              required
-            />
-          </div>
-          <button 
-            type="submit" 
-            class="px-6 py-3 bg-primary text-surface font-medium rounded-lg hover:bg-primary-dark transition-colors"
-          >
-            Subscribe
-          </button>
-        </form>
       </div>
     </Section>
   </main>

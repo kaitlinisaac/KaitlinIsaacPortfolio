@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
+import Section from '../../components/Section.astro';
 import Heading from '../../components/Heading.astro';
 import { getCollection } from 'astro:content';
 
@@ -33,49 +34,84 @@ const categories = {
 
 <Layout title="Videos | Music Education | Kaitlin Isaac">
   <Header />
-  <main id="main" class="max-w-2xl mx-auto px-6 md:px-8 py-8 space-y-12">
-    <!-- Header -->
-    <div>
-      <Heading level={1} class="text-center mb-2">
+  <main id="main" class="max-w-2xl mx-auto px-6 md:px-8 py-16 space-y-16">
+    <!-- Hero Section -->
+    <section class="space-y-6 max-w-2xl">
+      <Heading level={1}>
         Videos
       </Heading>
-      <p class="text-center text-content-muted mb-8">
+      
+      <p class="text-lg leading-relaxed">
         Classroom demonstrations, student performances, and educational content
       </p>
       
       <!-- Back link -->
-      <a href="/music-education" class="inline-flex items-center gap-2 text-primary hover:underline mb-8">
+      <a href="/music-education" class="inline-flex items-center gap-2 text-primary hover:underline mt-4">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
           <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
         </svg>
         Back to Music Education
       </a>
-    </div>
+    </section>
 
-    <!-- Video Categories -->
-    {Object.entries(categories).map(([categoryId, category]) => (
-      <section class="space-y-6">
-        <Heading level={2} class="text-xl text-primary">
-          {category.title}
-        </Heading>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {category.videos.map(video => (
-            <a 
-              href={`/music-education/videos/${video.category}/${video.id}`}
-              class="block bg-surface rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow"
-            >
-              <div class="aspect-video bg-gray-200 flex items-center justify-center text-gray-500">
-                [video thumbnail]
-              </div>
-              <div class="p-4">
-                <h3 class="font-medium text-h5 text-primary">{video.title}</h3>
-                <p class="text-content-muted text-sm line-clamp-2">{video.description}</p>
-              </div>
-            </a>
-          ))}
-        </div>
-      </section>
-    ))}
+    <!-- Student Concerts Section -->
+    <Section title={categories["student-concerts"].title} backgroundColor="primary">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {categories["student-concerts"].videos.map(video => (
+          <a 
+            href={`/music-education/videos/${video.category}/${video.id}`}
+            class="block bg-surface rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+          >
+            <div class="aspect-video bg-gray-200 flex items-center justify-center text-gray-500">
+              [video thumbnail]
+            </div>
+            <div class="p-6">
+              <h3 class="font-medium text-lg text-primary mb-2">{video.title}</h3>
+              <p class="text-body line-clamp-2">{video.description}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </Section>
+
+    <!-- Classroom Videos Section -->
+    <Section title={categories["classroom-videos"].title} backgroundColor="secondary">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {categories["classroom-videos"].videos.map(video => (
+          <a 
+            href={`/music-education/videos/${video.category}/${video.id}`}
+            class="block bg-surface rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+          >
+            <div class="aspect-video bg-gray-200 flex items-center justify-center text-gray-500">
+              [video thumbnail]
+            </div>
+            <div class="p-6">
+              <h3 class="font-medium text-lg text-primary mb-2">{video.title}</h3>
+              <p class="text-body line-clamp-2">{video.description}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </Section>
+
+    <!-- Flute Performances Section -->
+    <Section title={categories["flute-performances"].title} backgroundColor="accent">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {categories["flute-performances"].videos.map(video => (
+          <a 
+            href={`/music-education/videos/${video.category}/${video.id}`}
+            class="block bg-surface rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+          >
+            <div class="aspect-video bg-gray-200 flex items-center justify-center text-gray-500">
+              [video thumbnail]
+            </div>
+            <div class="p-6">
+              <h3 class="font-medium text-lg text-primary mb-2">{video.title}</h3>
+              <p class="text-body line-clamp-2">{video.description}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </Section>
   </main>
 </Layout> 
