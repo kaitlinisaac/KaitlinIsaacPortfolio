@@ -1,0 +1,56 @@
+---
+interface Props {
+  href?: string;
+  external?: boolean;
+  class?: string;
+  backgroundColor?: 'primary' | 'accent' | 'iconColor';
+  type?: 'submit' | 'button' | 'reset';
+  isButton?: boolean;
+}
+
+const { 
+  href,
+  external = false,
+  class: className = '',
+  backgroundColor = 'primary',
+  type = 'button',
+  isButton = false
+} = Astro.props;
+
+const externalProps = external ? {
+  target: "_blank",
+  rel: "noopener noreferrer"
+} : {};
+
+const bgColorMap = {
+  primary: 'bg-primary bg-opacity-30',
+  accent: 'bg-accent bg-opacity-30',
+  iconColor: 'bg-iconColor'
+};
+
+const bgColorClass = bgColorMap[backgroundColor];
+const baseClasses = [
+  bgColorClass,
+  "px-6 py-3 rounded-full no-underline-link flex items-center gap-2 transition-all hover:scale-[1.02]",
+  className
+];
+---
+
+{isButton ? (
+  <button 
+    type={type}
+    class:list={baseClasses}
+  >
+    <slot />
+    <span class="text-lg">→</span>
+  </button>
+) : (
+  <a 
+    href={href}
+    class:list={baseClasses}
+    {...externalProps}
+  >
+    <slot />
+    <span class="text-lg">→</span>
+  </a>
+)} 

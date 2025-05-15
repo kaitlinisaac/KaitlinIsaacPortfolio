@@ -2,6 +2,7 @@
 import Layout from '../../../../layouts/Layout.astro';
 import Header from '../../../../components/Header.astro';
 import Heading from '../../../../components/Heading.astro';
+import PillButton from '../../../../components/PillButton.astro';
 import { getCollection } from 'astro:content';
 
 // Get all lessons from the content collection
@@ -59,15 +60,16 @@ const downloadUrl = lesson.data.downloadUrl || "#";
     
     <!-- Download Button -->
     <div class="mt-8">
-      <a 
+      <PillButton 
         href={downloadUrl} 
-        class="inline-flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-full hover:bg-primary-dark transition-colors"
+        backgroundColor="primary"
+        class="text-white"
       >
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
         </svg>
         download lesson
-      </a>
+      </PillButton>
     </div>
   </main>
 </Layout> 

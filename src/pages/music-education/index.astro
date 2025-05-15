@@ -3,6 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Section from '../../components/Section.astro';
 import Heading from '../../components/Heading.astro';
+import PillButton from '../../components/PillButton.astro';
 ---
 
 <Layout title="Music Education | Kaitlin Isaac">
@@ -67,12 +68,12 @@ import Heading from '../../components/Heading.astro';
         
         <!-- See All Button -->
         <div class="mt-6">
-          <a href="/music-education/lessons" class="icon-button w-fit">
+          <PillButton 
+            href="/music-education/lessons" 
+            backgroundColor="iconColor"
+          >
             Explore Lesson Plans
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
-          </a>
+          </PillButton>
         </div>
       </div>
     </Section>
@@ -102,12 +103,12 @@ import Heading from '../../components/Heading.astro';
         
         <!-- See All Button -->
         <div class="mt-6">
-          <a href="/music-education/videos" class="icon-button w-fit">
+          <PillButton 
+            href="/music-education/videos" 
+            backgroundColor="iconColor"
+          >
             Watch Video Resources
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
-          </a>
+          </PillButton>
         </div>
       </div>
     </Section>

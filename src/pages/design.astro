@@ -4,6 +4,7 @@ import Header from '../components/Header.astro';
 import Section from '../components/Section.astro';
 import Heading from '../components/Heading.astro';
 import Card from '../components/Card.astro';
+import PillButton from '../components/PillButton.astro';
 ---
 
 <Layout title="Design Work | Kaitlin Isaac">
@@ -66,15 +67,13 @@ import Card from '../components/Card.astro';
     
     <!-- GitHub Button -->
     <div class="mt-10">
-      <a 
+      <PillButton 
         href="https://github.com/kaitlinisaac" 
-        class="bg-primary bg-opacity-30 px-6 py-3 rounded-full no-underline-link flex items-center gap-2 w-fit"
-        target="_blank" 
-        rel="noopener noreferrer"
+        external={true}
+        class="w-fit"
       >
         <span>Check Out My GitHub</span>
-        <span class="text-lg">→</span>
-      </a>
+      </PillButton>
     </div>
   </main>
 </Layout> 

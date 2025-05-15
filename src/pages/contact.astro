@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Section from '../components/Section.astro';
 import Heading from '../components/Heading.astro';
+import PillButton from '../components/PillButton.astro';
 ---
 
 <Layout title="Contact | Kaitlin Isaac">
@@ -81,12 +82,14 @@ import Heading from '../components/Heading.astro';
             ></textarea>
           </div>
           
-          <button 
-            type="submit" 
-            class="icon-button w-full md:w-auto"
+          <PillButton 
+            isButton={true}
+            type="submit"
+            backgroundColor="iconColor"
+            class="w-full md:w-auto"
           >
             Send Message
-          </button>
+          </PillButton>
         </form>
       </div>
     </Section>
