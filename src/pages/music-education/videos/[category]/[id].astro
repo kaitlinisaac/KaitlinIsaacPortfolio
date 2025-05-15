@@ -47,7 +47,10 @@ const videoEmbed = video.data.embedUrl || "#";
     
     <!-- Video Embed -->
     <div class="w-full aspect-video bg-gray-200 flex items-center justify-center text-gray-500">
-      [embedded video]
+      {videoEmbed === "#" ? 
+        "[embedded video]" : 
+        <div set:html={videoEmbed} />
+      }
     </div>
     
     <!-- Video Content -->

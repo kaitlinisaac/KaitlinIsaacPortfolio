@@ -9,9 +9,9 @@ export default {
       colors: {
         // Primary palette
         primary: {
-          DEFAULT: '#DABFFF', // Main purple
-          light: '#E6D5FF',
-          dark: '#BEA3E5',
+          DEFAULT: '#8E44AD', // Main purple (updated for accessibility)
+          light: '#A569BD',
+          dark: '#7D3C98',
         },
         secondary: {
           DEFAULT: '#9E95A9', // Muted purple-gray
@@ -19,20 +19,22 @@ export default {
           dark: '#837A8E',
         },
         accent: {
-          DEFAULT: '#FFFBBF', // Soft yellow
-          light: '#FFFDD9',
-          dark: '#FFF999',
-          yellow: '#FFFBBF',
+          DEFAULT: '#F7DC6F', // Soft yellow (updated for accessibility)
+          light: '#F9E79F',
+          dark: '#F4D03F',
+          yellow: '#F7DC6F',
         },
+        // Custom icon color
+        iconColor: '#DEC7E7',
         // Semantic colors
         content: {
           DEFAULT: '#56505F', // Dark text
           muted: '#76717F',
           subtle: '#96919F',
-          inverted: '#FEFDFF',
+          inverted: '#FFFFFF',
         },
         surface: {
-          DEFAULT: '#FEFDFF', // Light background
+          DEFAULT: '#FFFFFF', // Light background (updated for accessibility)
           secondary: '#F6F4FA',
           muted: '#EEEDF2',
         },
@@ -108,7 +110,7 @@ export default {
             a: {
               color: theme('colors.primary.DEFAULT'),
               textDecoration: 'underline',
-              textDecorationColor: 'rgb(218 191 255 / 0.4)', // primary color with 40% opacity
+              textDecorationColor: 'rgb(142 68 173 / 0.4)', // primary color with 40% opacity
               textUnderlineOffset: '4px',
               textDecorationThickness: '2px',
               transition: 'all 300ms',
@@ -128,7 +130,7 @@ export default {
             '--tw-prose-quotes': theme('colors.dark-content.muted'),
             a: {
               color: theme('colors.primary.light'),
-              textDecorationColor: 'rgb(230 213 255 / 0.4)', // primary-light color with 40% opacity
+              textDecorationColor: 'rgb(165 105 189 / 0.4)', // primary-light color with 40% opacity
               '&:hover': {
                 textDecorationColor: theme('colors.primary.light'),
               },

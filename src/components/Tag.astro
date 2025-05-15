@@ -6,7 +6,7 @@ interface Props {
 
 const { name, colorIndex } = Astro.props;
 
-const tagClass = colorIndex % 3 === 0 ? 'bg-primary hover:bg-primary-light' : 
+const tagClass = colorIndex % 3 === 0 ? 'bg-iconColor hover:bg-iconColor' : 
                  colorIndex % 3 === 1 ? 'bg-secondary hover:bg-secondary-light' : 
                  'bg-accent hover:bg-accent-light';
 ---

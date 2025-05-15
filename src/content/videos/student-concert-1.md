@@ -1,40 +1,25 @@
 ---
-title: "Spring Band Concert 2023"
-description: "Middle school band students perform their Spring Concert featuring music from various genres and time periods."
+title: "8th Grade Winter Concert 2021"
+description: "A backstage view of the 8th Grade Band's first concert after COVID, featuring works by Foster, Bernotas, and Grant."
 category: "student-concerts"
-tags: ["concerts", "performances", "middle school"]
-embedUrl: "#"
-thumbnail: "/images/videos/placeholder.jpg"
+tags: ["8th-grade", "concert-band", "post-pandemic", "conducting", "middle-school"]
+embedUrl: "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/zR5Jg0tMwXk?si=9W2_40pHBE6mNfA-\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+thumbnail: "/images/videos/student-concerts/winter-concert-2021.jpg"
 ---
 
-# Spring Band Concert 2023
+# 8th Grade Winter Concert 2021
 
-This video features the Lincoln Middle School Band performing their annual Spring Concert. The students prepared for three months to showcase their progress and musical achievements through a diverse program.
+This video captures a backstage perspective of the Lincoln Middle School 8th Grade Band's Winter Concert in December 2021. You'll hear the students performing while I conduct just off stage — a behind-the-scenes look at a milestone moment in our program's return to live music.
 
-## Program
+## Program and Performance
 
-### Beginning Band
-1. "First Steps March" - A piece designed to showcase fundamental skills
-2. "Midnight Journey" - A mysterious, minor key exploration
-3. "Celebration" - An upbeat finale with percussion highlights
+The 8th Grade Band performed:
+- **March of the Scots Guard** by Robert E. Foster
+- **Dancing Kites** by Chris Bernotas
+- **Chant and Fire Ritual** by Tyler S. Grant
 
-### Advanced Band
-1. "Ceremonial Fanfare" - A brass-focused opening piece
-2. "Folk Dance Suite" - A three-movement work based on traditional melodies
-3. "Cinema Spectacular" - Medley of film music favorites
+This concert was especially meaningful — not only because of the students' dedication and musical growth, but because it marked their **first performance since the COVID-19 shutdowns**. The last time this group performed together was as sixth graders in early 2020, just weeks before the world changed.
 
-## Teaching Reflections
+## Teaching Reflection
 
-This concert represented significant growth for many students, particularly in:
-- Ensemble balance and blend
-- Dynamic contrast
-- Rhythmic precision
-
-I'm particularly proud of how the percussion section coordinated multiple instruments and the way the clarinets mastered their challenging passages in "Folk Dance Suite."
-
-## Using This Video
-
-Music educators can use this video as:
-- A demonstration of appropriate repertoire selection
-- An example of effective stage presence and concert etiquette
-- A reference for balanced instrumentation in middle school ensembles 
+These students were my very first sixth-grade band class as a new teacher, and watching them take the stage again as eighth graders was deeply rewarding. Despite the challenges of remote learning and limited ensemble practice, they showed resilience, musicality, and joy. This concert was a reminder of why live music matters — to students, to educators, and to the community. 

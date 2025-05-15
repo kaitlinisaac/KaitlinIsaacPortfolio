@@ -4,12 +4,12 @@
 
 @layer base {
   :root {
-    --selection-bg: rgb(218 191 255 / 0.3);
+    --selection-bg: rgb(142 68 173 / 0.3);
     --selection-text: theme('colors.content.DEFAULT');
   }
 
   .dark {
-    --selection-bg: rgb(218 191 255 / 0.4);
+    --selection-bg: rgb(165 105 189 / 0.4);
     --selection-text: theme('colors.dark-content.DEFAULT');
   }
 
@@ -31,14 +31,14 @@
   a {
     text-decoration-line: underline;
     text-decoration-thickness: 2px;
-    text-decoration-color: rgb(218 191 255 / 0.4);
+    text-decoration-color: rgb(142 68 173 / 0.4);
     text-underline-offset: 4px;
     color: theme('colors.primary.DEFAULT');
   }
 
   .dark a {
     color: theme('colors.primary.light');
-    text-decoration-color: rgb(230 213 255 / 0.4);
+    text-decoration-color: rgb(165 105 189 / 0.4);
   }
 }
 
@@ -46,6 +46,19 @@
   /* Add a utility class to remove link styling when needed */
   .no-underline-link {
     @apply no-underline hover:no-underline;
+  }
+
+  /* Custom button styles with iconColor */
+  .icon-button {
+    @apply bg-iconColor text-content px-6 py-3 rounded-full 
+           font-medium hover:bg-iconColor/90 transition-colors 
+           flex items-center gap-2 no-underline-link;
+  }
+  
+  .icon-button-light {
+    @apply bg-iconColor/30 text-content px-6 py-3 rounded-full 
+           font-medium hover:bg-iconColor/40 transition-colors 
+           flex items-center gap-2 no-underline-link;
   }
 
   .tag {
@@ -58,7 +71,7 @@
   }
 
   .tag-primary {
-    @apply bg-primary bg-opacity-90 text-content font-medium;
+    @apply bg-iconColor bg-opacity-90 text-surface font-medium;
   }
 
   .tag-secondary {
@@ -70,7 +83,7 @@
   }
 
   .focus-ring {
-    @apply focus:outline-none focus:ring-2 focus:ring-primary 
+    @apply focus:outline-none focus:ring-2 focus:ring-iconColor 
            focus:ring-offset-2 dark:focus:ring-offset-dark-surface;
   }
 
