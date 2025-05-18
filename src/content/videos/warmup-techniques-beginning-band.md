@@ -4,7 +4,7 @@ description: "A demonstration of engaging and effective warmup routines suitable
 category: "classroom-videos"
 tags: ["classroom", "pedagogy", "warmups"]
 embedUrl: "#"
-thumbnail: "/images/videos/classroom-videos/warmups-beginners.jpg"
+thumbnail: "/images/videos/placeholder.jpg"
 ---
 
 # Effective Warmups for Beginning Band

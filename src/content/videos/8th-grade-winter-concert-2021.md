@@ -9,7 +9,7 @@ thumbnail: "/images/videos/student-concerts/winter-concert-2021.jpg"
 
 # 8th Grade Winter Concert 2021
 
-This video captures a backstage perspective of the Lincoln Middle School 8th Grade Band's Winter Concert in December 2021. You'll hear the students performing while I conduct just off stage — a behind-the-scenes look at a milestone moment in our program's return to live music.
+This video captures a backstage perspective of the Burley Middle School 8th Grade Band's Winter Concert in December 2021. You will hear the students performing while I conduct — a behind-the-scenes look at a milestone moment in our program's return to live music.
 
 ## Program and Performance
 
