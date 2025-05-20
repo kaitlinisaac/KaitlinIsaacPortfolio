@@ -33,7 +33,7 @@ const textSize = headingSizes[level];
       .replace(/(^-|-$)/g, '') 
     : undefined
   } 
-  class={`focus:outline-none focus:ring-2 focus:ring-accent-light focus:ring-offset-2 rounded-sm ${textSize} ${bgStyle} ${className}`}
+  class={`font-lovelace tracking-wide focus:outline-none focus:ring-2 focus:ring-accent-light focus:ring-offset-2 rounded-sm ${textSize} ${bgStyle} ${className}`}
   tabindex="-1"
 >
   <slot />

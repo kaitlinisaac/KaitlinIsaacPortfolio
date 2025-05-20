@@ -87,22 +87,27 @@ export default {
               fontSize: theme('fontSize.h1[0]'),
               lineHeight: theme('fontSize.h1[1].lineHeight'),
               fontWeight: theme('fontWeight.bold'),
-              letterSpacing: theme('fontSize.h1[1].letterSpacing'),
+              letterSpacing: '0.03em',
               marginBottom: theme('spacing.lg'),
+              fontFamily: "'Lovelace Text', serif",
             },
             h2: {
               fontSize: theme('fontSize.h2[0]'),
               lineHeight: theme('fontSize.h2[1].lineHeight'),
               fontWeight: theme('fontWeight.bold'),
+              letterSpacing: '0.03em',
               marginTop: theme('spacing.xl'),
               marginBottom: theme('spacing.md'),
+              fontFamily: "'Lovelace Text', serif",
             },
             h3: {
               fontSize: theme('fontSize.h3[0]'),
               lineHeight: theme('fontSize.h3[1].lineHeight'),
               fontWeight: theme('fontWeight.medium'),
+              letterSpacing: '0.03em',
               marginTop: theme('spacing.lg'),
               marginBottom: theme('spacing.sm'),
+              fontFamily: "'Lovelace Text', serif",
             },
             p: {
               marginBottom: theme('spacing.md'),
@@ -142,6 +147,7 @@ export default {
     fontFamily: {
       sans: ['Glacial Indifference', ...defaultTheme.fontFamily.sans],
       mono: defaultTheme.fontFamily.mono,
+      lovelace: ['Lovelace Text', 'serif'],
     },
   },
   plugins: [

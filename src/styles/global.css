@@ -2,6 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Add Lovelace font */
+@font-face {
+  font-family: 'Lovelace Text';
+  src: url('/fonts/Zetafonts - Lovelace Text Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Lovelace Text';
+  src: url('/fonts/Zetafonts - Lovelace Text Bold Italic.otf') format('opentype');
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Kaitlin-Regular';
+  src: url('/fonts/Kaitlin-Regular 2.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 @layer base {
   :root {
     --selection-bg: rgb(142 68 173 / 0.3);
@@ -25,6 +50,12 @@
 
   body {
     @apply text-content dark:text-dark-content bg-surface dark:bg-dark-surface;
+  }
+
+  /* Apply Lovelace font to all headings */
+  h1, h2, h3 {
+    font-family: 'Lovelace Text', serif;
+    letter-spacing: 0.03em;
   }
 
   /* Simple underlined links by default */
@@ -88,15 +119,18 @@
   }
 
   .heading-1 {
-    @apply text-h1 font-bold text-content dark:text-dark-content;
+    @apply text-h1 font-bold text-content dark:text-dark-content tracking-wide;
+    font-family: 'Lovelace Text', serif;
   }
 
   .heading-2 {
-    @apply text-h2 font-bold text-content dark:text-dark-content;
+    @apply text-h2 font-bold text-content dark:text-dark-content tracking-wide;
+    font-family: 'Lovelace Text', serif;
   }
 
   .heading-3 {
-    @apply text-h3 font-medium text-content dark:text-dark-content;
+    @apply text-h3 font-medium text-content dark:text-dark-content tracking-wide;
+    font-family: 'Lovelace Text', serif;
   }
 
   .body-text {
