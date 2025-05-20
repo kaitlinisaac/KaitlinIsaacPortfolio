@@ -32,13 +32,13 @@ const highlights = [
   <Header />
   
   <!-- Hero Section with lavender background -->
-  <section class="w-full py-16 bg-[#F6EDF7]">
+  <section class="w-full py-16 pb-10 bg-[#F6EDF7]">
     <div class="max-w-3xl mx-auto px-6 md:px-8 flex flex-col items-center">
       <!-- Main Heading -->
-      <h1 style="font-family: 'Lovelace Text', serif;" class="text-h1 mb-12 text-center">Hi, I'm <span class="italic">Kaitlin!</span></h1>
+      <h1 class="text-5xl md:text-6xl mb-12 text-center font-lovelace">Hi, I'm <span class="italic">Kaitlin!</span></h1>
       
       <!-- Main Illustration -->
-      <div class="w-full max-w-sm mb-6">
+      <div class="w-full max-w-sm">
         <img
           src="/images/Homepage-illustration.svg"
           alt="Illustration of Kaitlin playing a flute"
@@ -49,7 +49,12 @@ const highlights = [
           class="w-full h-auto"
         />
       </div>
-      
+    </div>
+  </section>
+  
+  <!-- Illustration credit and quick links section (outside of purple background) -->
+  <section class="w-full pt-6 pb-10">
+    <div class="max-w-3xl mx-auto px-6 md:px-8 flex flex-col items-center">
       <!-- Illustration credit with arrow -->
       <div class="mb-10 flex flex-col items-center">
         <!-- Upwards arrow -->
@@ -61,7 +66,7 @@ const highlights = [
       </div>
       
       <!-- Three Quick Links -->
-      <div class="w-full flex flex-col sm:flex-row justify-between items-center gap-8 sm:gap-4">
+      <div class="w-full flex flex-col sm:flex-row justify-between items-center gap-8 sm:gap-4 bg-[#F7DC6F]/20 rounded-lg p-8">
         <a href="/resume" class="flex items-center justify-center flex-col no-underline-link">
           <div class="w-20 h-20 rounded-full bg-iconColor flex items-center justify-center mb-2">
             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-content">
@@ -102,7 +107,7 @@ const highlights = [
   <!-- About Me Section -->
   <section class="w-full py-16">
     <div class="max-w-3xl mx-auto px-6 md:px-8">
-      <h2 style="font-family: 'Lovelace Text', serif;" class="text-h2 mb-8 text-center">About Me</h2>
+      <h2 class="text-h2 mb-8 text-center font-lovelace">About Me</h2>
       <div class="prose dark:prose-dark max-w-none">
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. In hac habitasse platea dictumst. Vivamus in turpis at lectus sollicitudin pharetra. Cras molestie nibh vel vestibulum pulvinar. Donec tincidunt sapien in velit vestibulum, in tempor velit faucibus. 
@@ -116,23 +121,7 @@ const highlights = [
 </Layout>
 
 <style>
-  /* Add Lovelace font */
-  @font-face {
-    font-family: 'Lovelace Text';
-    src: url('/fonts/Zetafonts - Lovelace Text Regular.otf') format('opentype');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-  }
-  
-  @font-face {
-    font-family: 'Lovelace Text';
-    src: url('/fonts/Zetafonts - Lovelace Text Bold Italic.otf') format('opentype');
-    font-weight: bold;
-    font-style: italic;
-    font-display: swap;
-  }
-  
+  /* Font declarations moved to global.css */
   @font-face {
     font-family: 'Kaitlin-Regular';
     src: url('/fonts/Kaitlin-Regular 2.otf') format('opentype');
