@@ -160,6 +160,15 @@ After the AI makes changes:
 - Follow the typography system for font sizes and weights
 - Reuse existing components rather than creating new ones with slight variations
 
+### Section Backgrounds
+
+- Use accent backgrounds strategically to create visual hierarchy
+- For hero sections with illustrations:
+  - The lavender background (#F6EDF7) should only extend to contain the main illustration
+  - Keep interactive elements like buttons and links on a neutral background for better contrast
+  - Use padding and spacing to create clear separation between differently colored sections
+- When adding colored backgrounds, ensure sufficient contrast with the text for accessibility
+
 ### Accessibility
 
 - Ensure sufficient color contrast
