@@ -14,6 +14,17 @@ const lessons = allLessons.map(lesson => ({
   thumbnail: lesson.data.thumbnail || "/images/lessons/placeholder.jpg",
   category: lesson.data.category
 }));
+
+// Get tools and materials from content collection
+// Uncomment and modify this when you have a 'tools' collection
+// const allTools = await getCollection('tools');
+// const tools = allTools.map(tool => ({
+//   id: tool.id,
+//   title: tool.data.title,
+//   description: tool.data.description,
+//   thumbnail: tool.data.thumbnail || "/images/tools/placeholder.jpg",
+//   link: tool.data.link
+// }));
 ---
 
 <Layout title="Lessons & Materials | Music Education | Kaitlin Isaac">
@@ -26,7 +37,7 @@ const lessons = allLessons.map(lesson => ({
       </Heading>
       
       <p class="text-lg leading-relaxed">
-        Resources for music educators, students, and parents
+        Digital lessons and tools used in my classroom
       </p>
       
       <!-- Back link -->
@@ -39,7 +50,7 @@ const lessons = allLessons.map(lesson => ({
     </section>
 
     <!-- Lessons Section -->
-    <Section title="Available Lessons" backgroundColor="primary">
+    <Section title="Lessons" backgroundColor="primary">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         {lessons.map((lesson) => (
           <a 
@@ -59,6 +70,40 @@ const lessons = allLessons.map(lesson => ({
             </div>
           </a>
         ))}
+      </div>
+    </Section>
+
+    <!-- Tools and Additional Materials Section -->
+    <Section title="Tools and Additional Materials" backgroundColor="secondary">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {/* Placeholder content - replace with your actual tools data */}
+        <div class="block bg-surface rounded-lg overflow-hidden shadow-sm">
+          <div class="aspect-video bg-gray-200 overflow-hidden">
+            <img 
+              src="/images/tools/placeholder.jpg" 
+              alt="Tool placeholder"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <div class="p-6">
+            <h3 class="font-medium text-lg text-primary mb-2">Music Theory Flashcards</h3>
+            <p class="text-body">Printable flashcards to help students learn music theory concepts.</p>
+          </div>
+        </div>
+
+        <div class="block bg-surface rounded-lg overflow-hidden shadow-sm">
+          <div class="aspect-video bg-gray-200 overflow-hidden">
+            <img 
+              src="/images/tools/placeholder.jpg" 
+              alt="Tool placeholder"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <div class="p-6">
+            <h3 class="font-medium text-lg text-primary mb-2">Practice Tracker</h3>
+            <p class="text-body">Downloadable sheet for tracking student practice sessions.</p>
+          </div>
+        </div>
       </div>
     </Section>
   </main>

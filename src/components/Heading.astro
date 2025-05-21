@@ -21,7 +21,7 @@ const headingSizes = {
 };
 
 // Add the yellow background styling if useBgStyle is true
-const bgStyle = useBgStyle ? 'bg-accent inline-block px-6 py-2 rounded-md text-gray-700' : '';
+const bgStyle = useBgStyle ? 'bg-accent/50 inline-block px-6 py-2 rounded-md text-gray-700' : '';
 const textSize = headingSizes[level];
 ---
 
@@ -33,7 +33,7 @@ const textSize = headingSizes[level];
       .replace(/(^-|-$)/g, '') 
     : undefined
   } 
-  class={`font-lovelace tracking-wide focus:outline-none focus:ring-2 focus:ring-accent-light focus:ring-offset-2 rounded-sm ${textSize} ${bgStyle} ${className}`}
+  class={`font-lovelace tracking-wide italic focus:outline-none focus:ring-2 focus:ring-accent-light focus:ring-offset-2 rounded-sm ${textSize} ${bgStyle} ${className}`}
   tabindex="-1"
 >
   <slot />
