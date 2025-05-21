@@ -1,79 +1,32 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
-import Section from '../components/Section.astro';
-import Heading from '../components/Heading.astro';
-import Card from '../components/Card.astro';
 import PillButton from '../components/PillButton.astro';
 ---
 
 <Layout title="Design Work | Kaitlin Isaac">
   <Header />
   <main id="main" class="max-w-2xl mx-auto px-6 md:px-8 py-16 space-y-16">
-    <!-- Page Title -->
-    <section class="space-y-6 max-w-2xl">
-      <Heading 
-        level={1}
-      >
-        design work
-      </Heading>
+    <!-- Work in Progress Message -->
+    <section class="space-y-8 flex flex-col items-center text-center">
+      <h1 class="text-4xl md:text-5xl font-bold">Excuse the Mess 🚧 !</h1>
       
-      <!-- Philosophy Statement -->
-      <div class="bg-primary bg-opacity-10 rounded-lg p-6">
-        <p class="text-lg leading-relaxed">
-          My design philosophy draws deeply from my experiences as an educator. Data-driven 
-          decisions have been my compass, ensuring equity and transparency. While predictability 
-          structures the experience, it's the creativity within that structure which keeps it vibrant 
-          and engaging. Whether it's in the classroom or at my desk, the end goal remains the 
-          same: design experiences that resonate, inform, and inspire.
-        </p>
+      <p class="text-xl">This site is still in progress. 👷🏽‍♀️</p>
+      
+      <div class="h-px w-24 bg-primary my-4"></div>
+      
+      <p class="text-xl">In the meantime</p>
+      
+      <!-- GitHub Button -->
+      <div class="mt-6">
+        <PillButton 
+          href="https://github.com/kaitlinisaac" 
+          external={true}
+          class="w-fit"
+        >
+          <span>Check Out My GitHub</span>
+        </PillButton>
       </div>
     </section>
-    
-    <!-- Recent Projects Section -->
-    <Section title="Recent Projects">
-      <div class="space-y-6">
-        <!-- Project Card 1 -->
-        <div class="border border-primary rounded-lg p-6 flex items-center">
-          <div class="w-16 h-16 bg-gray-300 rounded-full mr-6 flex-shrink-0"></div>
-          <div>
-            <p class="text-lg leading-relaxed">
-              Cillum officia amet velit in cillum id eiusmod nulla pariatur mollit id magna. Exercitation ut qui non exercitation mollit do sunt aliqua...
-            </p>
-          </div>
-        </div>
-        
-        <!-- Project Card 2 -->
-        <div class="border border-primary rounded-lg p-6 flex items-center">
-          <div class="w-16 h-16 bg-gray-300 rounded-full mr-6 flex-shrink-0"></div>
-          <div>
-            <p class="text-lg leading-relaxed">
-              Cillum officia amet velit in cillum id eiusmod nulla pariatur mollit id magna. Exercitation ut qui non exercitation mollit do sunt aliqua...
-            </p>
-          </div>
-        </div>
-        
-        <!-- Project Card 3 -->
-        <div class="border border-primary rounded-lg p-6 flex items-center">
-          <div class="w-16 h-16 bg-gray-300 rounded-full mr-6 flex-shrink-0"></div>
-          <div>
-            <p class="text-lg leading-relaxed">
-              Cillum officia amet velit in cillum id eiusmod nulla pariatur mollit id magna. Exercitation ut qui non exercitation mollit do sunt aliqua...
-            </p>
-          </div>
-        </div>
-      </div>
-    </Section>
-    
-    <!-- GitHub Button -->
-    <div class="mt-10">
-      <PillButton 
-        href="https://github.com/kaitlinisaac" 
-        external={true}
-        class="w-fit"
-      >
-        <span>Check Out My GitHub</span>
-      </PillButton>
-    </div>
   </main>
 </Layout> 

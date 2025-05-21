@@ -4,6 +4,7 @@ import Header from '../components/Header.astro';
 import Section from '../components/Section.astro';
 import Heading from '../components/Heading.astro';
 import BlogPost from '../components/BlogPost.astro';
+import PillButton from '../components/PillButton.astro';
 
 const posts = [
   {
@@ -44,35 +45,26 @@ const posts = [
 <Layout title="Blog | Kaitlin Isaac">
   <Header />
   <main id="main" class="max-w-2xl mx-auto px-6 md:px-8 py-16 space-y-16">
-    <!-- Hero Section -->
-    <section class="space-y-6 max-w-2xl">
-      <Heading 
-        level={1}
-        class="text-center"
-      >
-        Blog
-      </Heading>
+    <!-- Work in Progress Message -->
+    <section class="space-y-8 flex flex-col items-center text-center">
+      <h1 class="text-4xl md:text-5xl font-bold">Excuse the Mess 🚧 !</h1>
       
-      <p class="text-lg leading-relaxed">
-        Welcome to my blog where I share insights, tips, and experiences about music education, 
-        UX design, and my journey combining these two passions. Here you'll find helpful 
-        resources and personal reflections.
-      </p>
-    </section>
-
-    <!-- Recent Posts Section -->
-    <Section title="Recent Posts" backgroundColor="primary">
-      <div class="space-y-lg">
-        {posts.map((post) => (
-          <BlogPost 
-            title={post.title}
-            description={post.description}
-            date={post.date}
-            category={post.category}
-            slug={post.slug}
-          />
-        ))}
+      <p class="text-xl">This site is still in progress. 👷🏽‍♀️</p>
+      
+      <div class="h-px w-24 bg-primary my-4"></div>
+      
+      <p class="text-xl">In the meantime</p>
+      
+      <!-- WordPress Blog Button -->
+      <div class="mt-6">
+        <PillButton 
+          href="https://kaitlinmisaac.wordpress.com/" 
+          external={true}
+          class="w-fit"
+        >
+          <span>Read my Blog on WordPress</span>
+        </PillButton>
       </div>
-    </Section>
+    </section>
   </main>
 </Layout> 
