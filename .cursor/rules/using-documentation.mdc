@@ -1,0 +1,6 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+The AI agent must review instructions folder /Users/kaitlinisaac/Documents/CodeProjects/KaitlinIsaacSite/instructions to see if there is documentation that can support her request. Then, you must follow the documentation to your best ability. Recommendations to change documentation if it is confusing or bad would be helpful to send to the user because she is trying to learn best coding practices.
