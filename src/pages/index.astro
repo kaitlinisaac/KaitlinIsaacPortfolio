@@ -68,8 +68,9 @@ const highlights = [
       <!-- Three Quick Links -->
       <div class="w-full flex flex-col sm:flex-row justify-between items-center gap-8 sm:gap-4 bg-[#F7DC6F]/20 rounded-lg p-8">
         <a href="/resume" class="flex items-center justify-center flex-col no-underline-link">
-          <div class="w-20 h-20 rounded-full bg-iconColor flex items-center justify-center mb-2">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-content">
+          <div class="icon-circle w-20 h-20 rounded-full bg-iconColor flex items-center justify-center mb-2 relative overflow-hidden">
+            <div class="fill-overlay absolute bottom-0 left-0 right-0 w-full h-0 bg-[#F8DC6F] transition-all duration-300 ease-in-out"></div>
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-content z-10 relative">
               <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
               <path d="M14 2v6h6"></path>
               <path d="M16 13H8"></path>
@@ -81,8 +82,9 @@ const highlights = [
         </a>
         
         <a href="/music-education" class="flex items-center justify-center flex-col no-underline-link">
-          <div class="w-20 h-20 rounded-full bg-iconColor flex items-center justify-center mb-2">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-content">
+          <div class="icon-circle w-20 h-20 rounded-full bg-iconColor flex items-center justify-center mb-2 relative overflow-hidden">
+            <div class="fill-overlay absolute bottom-0 left-0 right-0 w-full h-0 bg-[#F8DC6F] transition-all duration-300 ease-in-out"></div>
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-content z-10 relative">
               <path d="M9 18V5l12-2v13"></path>
               <circle cx="6" cy="18" r="3"></circle>
               <circle cx="18" cy="16" r="3"></circle>
@@ -92,8 +94,9 @@ const highlights = [
         </a>
         
         <a href="/contact" class="flex items-center justify-center flex-col no-underline-link">
-          <div class="w-20 h-20 rounded-full bg-iconColor flex items-center justify-center mb-2">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-content">
+          <div class="icon-circle w-20 h-20 rounded-full bg-iconColor flex items-center justify-center mb-2 relative overflow-hidden">
+            <div class="fill-overlay absolute bottom-0 left-0 right-0 w-full h-0 bg-[#F8DC6F] transition-all duration-300 ease-in-out"></div>
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-content z-10 relative">
               <rect x="2" y="4" width="20" height="16" rx="2"></rect>
               <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
             </svg>
@@ -110,13 +113,13 @@ const highlights = [
       <h2 class="text-h2 mb-8 text-center font-lovelace">About Me</h2>
       <div class="prose dark:prose-dark max-w-none">
         <p>
-          Hi, I'm Kaitlin Isaac — a flutist, music educator, and passionate advocate for the power of school band programs. I first picked up the flute in fourth grade, and that moment sparked a lifelong love of music that led me to the podium as a band director.
+          Hi, I'm Kaitlin Isaac — a flutist, music educator, and passionate advocate for the power of school music programs. I first picked up the flute in fourth grade, and that moment sparked a lifelong love of music that led me to the podium as a band director.
         </p>
         <p>
-          After several years teaching elementary and middle school band, I stepped away from the classroom to explore a new creative path in design and technology. But even as I built new skills and worked on exciting projects, I never stopped missing the joy of working with young musicians.
+          After several years teaching middle school band (through a pandemic, no less), I stepped away from the classroom to explore a new creative path in design and technology. But even as I built new skills and worked on exciting projects, I never stopped missing the joy of working with young musicians.
         </p>
         <p>
-          Now, I'm returning to the classroom with fresh energy and renewed purpose. Substituting in the Williamsville Central School District has reminded me of what I love most—helping students find confidence, connection, and creativity through music.
+          After a move to Buffalo and meeting so many wonderful students and amazing teachers through my work as a substitute teacher, I'm thrilled about the prospect of returning to the classroom fulltime. Substituting in the Williamsville Central School District has reminded me of what I love most—helping students find confidence, connection, and creativity through music.
         </p>
         <p>
           This website is both a portfolio of my teaching and a reflection of my design work. I built it myself to showcase who I am: a dedicated educator, lifelong learner, and someone who believes deeply in the impact of music education.
@@ -134,5 +137,9 @@ const highlights = [
     font-weight: normal;
     font-style: normal;
     font-display: swap;
+  }
+  
+  .icon-circle:hover .fill-overlay {
+    height: 100%;
   }
 </style>
