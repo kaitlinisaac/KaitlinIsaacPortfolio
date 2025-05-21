@@ -2,6 +2,13 @@
 import ThemeToggle from './ThemeToggle.astro';
 import TableOfContents from './TableOfContents.astro';
 
+// Add a prop to control hamburger menu visibility
+interface Props {
+  showHamburgerMenu?: boolean;
+}
+
+const { showHamburgerMenu = true } = Astro.props;
+
 const navItems = [
   { href: "/music-education", label: "Music Education", dotColor: "bg-primary dark:bg-primary-light" },
   { href: "/design", label: "Design", dotColor: "bg-primary dark:bg-primary-light" },
@@ -56,7 +63,7 @@ const navItems = [
             aria-label="Toggle table of contents"
             aria-expanded="false"
             aria-controls="toc-sidebar"
-            class="flex flex-col gap-1.5 p-2 hover:bg-surface-secondary dark:hover:bg-dark-surface-secondary rounded-lg transition-colors"
+            class={`flex flex-col gap-1.5 p-2 hover:bg-surface-secondary dark:hover:bg-dark-surface-secondary rounded-lg transition-colors ${!showHamburgerMenu ? 'md:hidden' : ''}`}
           >
             <span class="w-5 h-0.5 bg-primary dark:bg-primary-light"></span>
             <span class="w-5 h-0.5 bg-primary dark:bg-primary-light"></span>
@@ -72,7 +79,7 @@ const navItems = [
     id="toc-sidebar"
     role="complementary"
     aria-labelledby="toc-heading"
-    class="fixed right-0 top-[89px] bottom-0 w-64 bg-surface dark:bg-dark-surface transform translate-x-full overflow-y-auto"
+    class={`fixed right-0 top-[89px] bottom-0 w-64 bg-surface dark:bg-dark-surface transform translate-x-full overflow-y-auto ${!showHamburgerMenu ? 'md:hidden' : ''}`}
   >
     <div class="p-6">
       <!-- Mobile-only Navigation -->
@@ -93,21 +100,28 @@ const navItems = [
 
       <!-- Table of Contents -->
       <nav aria-labelledby="toc-heading">
-        <TableOfContents />
+        <TableOfContents enabled={showHamburgerMenu} />
       </nav>
     </div>
   </div>
 </div>
 
-<script>
+<script define:vars={{ showHamburgerMenu }}>
   const menuToggle = document.getElementById('menu-toggle');
   const tocSidebar = document.getElementById('toc-sidebar');
+  
+  // Function to check if hamburger menu should be shown based on screen size and prop
+  const shouldShowMenu = () => {
+    // On small screens (below md breakpoint), always show menu regardless of prop
+    // On larger screens, respect the showHamburgerMenu prop
+    return window.innerWidth < 768 || showHamburgerMenu;
+  };
   
   // Function to check if there's enough room for the menu AND content
   const hasEnoughRoom = () => window.innerWidth >= 1216;
 
   // Set initial state without animation
-  if (hasEnoughRoom()) {
+  if (hasEnoughRoom() && shouldShowMenu()) {
     tocSidebar?.classList.remove('translate-x-full');
     menuToggle?.setAttribute('aria-expanded', 'true');
   } else {
@@ -129,7 +143,14 @@ const navItems = [
 
   // Update menu state on resize
   window.addEventListener('resize', () => {
-    const shouldExpand = hasEnoughRoom();
+    // Hide menu completely on larger screens when showHamburgerMenu is false
+    if (!shouldShowMenu() && window.innerWidth >= 768) {
+      tocSidebar?.classList.add('translate-x-full');
+      menuToggle?.setAttribute('aria-expanded', 'false');
+      return;
+    }
+    
+    const shouldExpand = hasEnoughRoom() && shouldShowMenu();
     menuToggle?.setAttribute('aria-expanded', shouldExpand.toString());
     tocSidebar?.classList.toggle('translate-x-full', !shouldExpand);
   });
