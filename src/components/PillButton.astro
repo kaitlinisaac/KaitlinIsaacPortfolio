@@ -31,7 +31,8 @@ const bgColorMap = {
 const bgColorClass = bgColorMap[backgroundColor];
 const baseClasses = [
   bgColorClass,
-  "px-6 py-3 rounded-full no-underline-link flex items-center gap-2 transition-all hover:scale-[1.02]",
+  "px-6 py-3 rounded-full no-underline-link flex items-center gap-2 transition-all duration-300 ease-in-out",
+  "relative overflow-hidden group",
   className
 ];
 ---
@@ -41,8 +42,11 @@ const baseClasses = [
     type={type}
     class:list={baseClasses}
   >
-    <slot />
-    <span class="text-lg">→</span>
+    <span class="absolute inset-0 w-0 bg-[#F8DC6F] transition-all duration-300 ease-in-out group-hover:w-full"></span>
+    <span class="relative z-10 flex items-center gap-2 transition-transform duration-300 ease-in-out group-hover:translate-x-2 font-semibold">
+      <slot />
+      <span class="text-lg transition-transform duration-300 ease-in-out group-hover:translate-x-1">→</span>
+    </span>
   </button>
 ) : (
   <a 
@@ -50,7 +54,10 @@ const baseClasses = [
     class:list={baseClasses}
     {...externalProps}
   >
-    <slot />
-    <span class="text-lg">→</span>
+    <span class="absolute inset-0 w-0 bg-[#F8DC6F] transition-all duration-300 ease-in-out group-hover:w-full"></span>
+    <span class="relative z-10 flex items-center gap-2 transition-transform duration-300 ease-in-out group-hover:translate-x-2 font-semibold">
+      <slot />
+      <span class="text-lg transition-transform duration-300 ease-in-out group-hover:translate-x-1">→</span>
+    </span>
   </a>
 )} 
