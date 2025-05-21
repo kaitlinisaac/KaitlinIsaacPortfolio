@@ -30,6 +30,7 @@ const lessonTitle = lesson.data.title;
 const lessonDescription = lesson.data.description;
 const lessonImage = lesson.data.imageUrl || "/images/lessons/placeholder-large.jpg";
 const downloadUrl = lesson.data.downloadUrl || "#";
+const embedUrl = lesson.data.embedUrl;
 ---
 
 <Layout title={`${lessonTitle} | Music Education | Kaitlin Isaac`}>
@@ -48,10 +49,17 @@ const downloadUrl = lesson.data.downloadUrl || "#";
       {lessonTitle}
     </Heading>
     
-    <!-- Lesson Image -->
-    <div class="w-full aspect-video bg-gray-200 flex items-center justify-center text-gray-500">
-      [screenshots of lesson]
-    </div>
+    <!-- Embed Content -->
+    {embedUrl && (
+      <div class="w-full flex items-center justify-center text-gray-500 my-8" set:html={embedUrl} />
+    )}
+    
+    <!-- Lesson Image - Conditionally render if no embedUrl -->
+    {!embedUrl && lessonImage && (
+      <div class="w-full aspect-video bg-gray-200 flex items-center justify-center text-gray-500">
+        <img src={lessonImage} alt={lessonTitle} class="object-cover w-full h-full" />
+      </div>
+    )}
     
     <!-- Lesson Content -->
     <div class="prose max-w-none">
@@ -59,17 +67,19 @@ const downloadUrl = lesson.data.downloadUrl || "#";
     </div>
     
     <!-- Download Button -->
-    <div class="mt-8">
-      <PillButton 
-        href={downloadUrl} 
-        backgroundColor="primary"
-        class="text-white"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-        </svg>
-        download lesson
-      </PillButton>
-    </div>
+    {downloadUrl && downloadUrl !== "#" && (
+      <div class="mt-8">
+        <PillButton 
+          href={downloadUrl} 
+          backgroundColor="primary"
+          class="text-white"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+          </svg>
+          download lesson
+        </PillButton>
+      </div>
+    )}
   </main>
 </Layout> 

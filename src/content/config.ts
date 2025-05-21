@@ -22,6 +22,7 @@ const lessonsCollection = defineCollection({
     category: z.string(),
     tags: z.array(z.string()).optional(),
     imageUrl: z.string().optional(),
+    embedUrl: z.string().optional(),
     draft: z.boolean().optional(),
   }),
 });
