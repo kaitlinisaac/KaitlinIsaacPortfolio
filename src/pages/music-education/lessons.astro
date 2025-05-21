@@ -40,16 +40,22 @@ const lessons = allLessons.map(lesson => ({
 
     <!-- Lessons Section -->
     <Section title="Available Lessons" backgroundColor="primary">
-      <div class="space-y-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         {lessons.map((lesson) => (
           <a 
             href={`/music-education/lessons/${lesson.category}/${lesson.id}`}
-            class="block bg-surface rounded-lg p-6 flex items-start gap-6 shadow-sm hover:shadow-md transition-shadow"
+            class="block bg-surface rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow"
           >
-            <div class="w-16 h-16 bg-gray-200 rounded-full flex-shrink-0"></div>
-            <div>
+            <div class="aspect-video bg-gray-200 overflow-hidden">
+              <img 
+                src={lesson.thumbnail} 
+                alt={`Thumbnail for ${lesson.title}`}
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div class="p-6">
               <h3 class="font-medium text-lg text-primary mb-2">{lesson.title}</h3>
-              <p class="text-body">{lesson.description}</p>
+              <p class="text-body line-clamp-2">{lesson.description}</p>
             </div>
           </a>
         ))}
