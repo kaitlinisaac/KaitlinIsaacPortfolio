@@ -29,7 +29,7 @@
 
 @layer base {
   :root {
-    --selection-bg: rgb(142 68 173 / 0.3);
+    --selection-bg: rgb(117 70 137 / 0.3);
     --selection-text: theme('colors.content.DEFAULT');
   }
 
@@ -62,7 +62,7 @@
   a {
     text-decoration-line: underline;
     text-decoration-thickness: 2px;
-    text-decoration-color: rgb(142 68 173 / 0.4);
+    text-decoration-color: rgb(117 70 137 / 0.4);
     text-underline-offset: 4px;
     color: theme('colors.primary.DEFAULT');
   }

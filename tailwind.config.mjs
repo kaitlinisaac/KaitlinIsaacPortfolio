@@ -9,7 +9,7 @@ export default {
       colors: {
         // Primary palette
         primary: {
-          DEFAULT: '#8E44AD', // Main purple (updated for accessibility)
+          DEFAULT: '#754689', // Main purple (updated for accessibility)
           light: '#A569BD',
           dark: '#7D3C98',
         },

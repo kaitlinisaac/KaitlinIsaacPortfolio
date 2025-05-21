@@ -3,11 +3,11 @@ import ThemeToggle from './ThemeToggle.astro';
 import TableOfContents from './TableOfContents.astro';
 
 const navItems = [
-  { href: "/music-education", label: "Music Education", dotColor: "bg-iconColor" },
-  { href: "/design", label: "Design", dotColor: "bg-iconColor" },
-  { href: "/private-lessons", label: "Private Lessons", dotColor: "bg-iconColor" },
-  { href: "/blog", label: "Blog", dotColor: "bg-iconColor" },
-  { href: "/contact", label: "Contact", dotColor: "bg-iconColor" },
+  { href: "/music-education", label: "Music Education", dotColor: "bg-primary dark:bg-primary-light" },
+  { href: "/design", label: "Design", dotColor: "bg-primary dark:bg-primary-light" },
+  { href: "/private-lessons", label: "Private Lessons", dotColor: "bg-primary dark:bg-primary-light" },
+  { href: "/blog", label: "Blog", dotColor: "bg-primary dark:bg-primary-light" },
+  { href: "/contact", label: "Contact", dotColor: "bg-primary dark:bg-primary-light" },
 ];
 ---
 
@@ -58,9 +58,9 @@ const navItems = [
             aria-controls="toc-sidebar"
             class="flex flex-col gap-1.5 p-2 hover:bg-surface-secondary dark:hover:bg-dark-surface-secondary rounded-lg transition-colors"
           >
-            <span class="w-5 h-0.5 bg-iconColor"></span>
-            <span class="w-5 h-0.5 bg-iconColor"></span>
-            <span class="w-5 h-0.5 bg-iconColor"></span>
+            <span class="w-5 h-0.5 bg-primary dark:bg-primary-light"></span>
+            <span class="w-5 h-0.5 bg-primary dark:bg-primary-light"></span>
+            <span class="w-5 h-0.5 bg-primary dark:bg-primary-light"></span>
           </button>
         </div>
       </div>
