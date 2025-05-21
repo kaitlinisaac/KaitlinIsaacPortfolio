@@ -21,10 +21,6 @@ const categories = {
     title: "Student Concerts",
     videos: videos.filter(video => video.category === "student-concerts")
   },
-  "classroom-videos": {
-    title: "Classroom Videos",
-    videos: videos.filter(video => video.category === "classroom-videos")
-  },
   "flute-performances": {
     title: "Flute Performances",
     videos: videos.filter(video => video.category === "flute-performances")
@@ -58,30 +54,6 @@ const categories = {
     <Section title={categories["student-concerts"].title} backgroundColor="primary">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         {categories["student-concerts"].videos.map(video => (
-          <a 
-            href={`/music-education/videos/${video.category}/${video.id}`}
-            class="block bg-surface rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow"
-          >
-            <div class="aspect-video bg-gray-200 overflow-hidden">
-              <img 
-                src={video.thumbnail} 
-                alt={`Thumbnail for ${video.title}`}
-                class="w-full h-full object-cover"
-              />
-            </div>
-            <div class="p-6">
-              <h3 class="font-medium text-lg text-primary mb-2">{video.title}</h3>
-              <p class="text-body line-clamp-2">{video.description}</p>
-            </div>
-          </a>
-        ))}
-      </div>
-    </Section>
-
-    <!-- Classroom Videos Section -->
-    <Section title={categories["classroom-videos"].title} backgroundColor="secondary">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {categories["classroom-videos"].videos.map(video => (
           <a 
             href={`/music-education/videos/${video.category}/${video.id}`}
             class="block bg-surface rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow"
