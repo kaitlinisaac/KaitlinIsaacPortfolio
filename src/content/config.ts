@@ -24,6 +24,7 @@ const lessonsCollection = defineCollection({
     imageUrl: z.string().optional(),
     embedUrl: z.string().optional(),
     draft: z.boolean().optional(),
+    type: z.string().optional(),
   }),
 });
 

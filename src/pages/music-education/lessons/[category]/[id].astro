@@ -31,6 +31,7 @@ const lessonDescription = lesson.data.description;
 const lessonImage = lesson.data.imageUrl || "/images/lessons/placeholder-large.jpg";
 const downloadUrl = lesson.data.downloadUrl || "#";
 const embedUrl = lesson.data.embedUrl;
+const isToolType = lesson.data.type === "tool";
 ---
 
 <Layout title={`${lessonTitle} | Music Education | Kaitlin Isaac`}>
@@ -54,8 +55,8 @@ const embedUrl = lesson.data.embedUrl;
       <div class="w-full flex items-center justify-center text-gray-500 my-8" set:html={embedUrl} />
     )}
     
-    <!-- Lesson Image - Conditionally render if no embedUrl -->
-    {!embedUrl && lessonImage && (
+    <!-- Lesson Image - Conditionally render if no embedUrl and not a tool type -->
+    {!embedUrl && lessonImage && !isToolType && (
       <div class="w-full aspect-video bg-gray-200 flex items-center justify-center text-gray-500">
         <img src={lessonImage} alt={lessonTitle} class="object-cover w-full h-full" />
       </div>

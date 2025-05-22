@@ -7,13 +7,32 @@ import { getCollection } from 'astro:content';
 
 // Get lessons from content collection
 const allLessons = await getCollection('lessons');
-const lessons = allLessons.map(lesson => ({
-  id: lesson.id.split('/').pop().split('.')[0],
-  title: lesson.data.title,
-  description: lesson.data.description,
-  thumbnail: lesson.data.thumbnail || "/images/lessons/placeholder.jpg",
-  category: lesson.data.category
-}));
+
+// Filter lessons for the main "Lessons" section
+// Items that are NOT of type "tool"
+const mainLessons = allLessons
+  .filter(lesson => lesson.data.type !== "tool") 
+  .map(lesson => ({
+    id: lesson.id.split('/').pop().split('.')[0],
+    title: lesson.data.title,
+    description: lesson.data.description,
+    thumbnail: lesson.data.thumbnail || "/images/lessons/placeholder.jpg",
+    category: lesson.data.category
+    // Add type here if you need it for URL generation or display, e.g., type: lesson.data.type
+  }));
+
+// Filter lessons for the "Tools and Additional Materials" section
+// Items that ARE of type "tool"
+const toolLessons = allLessons
+  .filter(lesson => lesson.data.type === "tool") 
+  .map(lesson => ({
+    id: lesson.id.split('/').pop().split('.')[0],
+    title: lesson.data.title,
+    description: lesson.data.description,
+    thumbnail: lesson.data.thumbnail || "/images/lessons/placeholder.jpg", 
+    category: lesson.data.category
+    // Add type here if you need it, e.g., type: lesson.data.type
+  }));
 
 // Get tools and materials from content collection
 // Uncomment and modify this when you have a 'tools' collection
@@ -52,58 +71,58 @@ const lessons = allLessons.map(lesson => ({
     <!-- Lessons Section -->
     <Section title="Lessons" backgroundColor="primary">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {lessons.map((lesson) => (
-          <a 
-            href={`/music-education/lessons/${lesson.category}/${lesson.id}`}
-            class="block bg-surface rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow"
-          >
-            <div class="aspect-video bg-gray-200 overflow-hidden">
-              <img 
-                src={lesson.thumbnail} 
-                alt={`Thumbnail for ${lesson.title}`}
-                class="w-full h-full object-cover"
-              />
-            </div>
-            <div class="p-6">
-              <h3 class="font-medium text-lg text-primary mb-2">{lesson.title}</h3>
-              <p class="text-body line-clamp-2">{lesson.description}</p>
-            </div>
-          </a>
-        ))}
+        {mainLessons.length > 0 ? (
+          mainLessons.map((lesson) => (
+            <a 
+              href={`/music-education/lessons/${lesson.category}/${lesson.id}`}
+              class="block bg-surface rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+            >
+              <div class="aspect-video bg-gray-200 overflow-hidden">
+                <img 
+                  src={lesson.thumbnail} 
+                  alt={`Thumbnail for ${lesson.title}`}
+                  class="w-full h-full object-cover"
+                />
+              </div>
+              <div class="p-6">
+                <h3 class="font-medium text-lg text-primary mb-2">{lesson.title}</h3>
+                <p class="text-body line-clamp-2">{lesson.description}</p>
+              </div>
+            </a>
+          ))
+        ) : (
+          <p>No lessons available in this section yet.</p>
+        )}
       </div>
     </Section>
 
     <!-- Tools and Additional Materials Section -->
     <Section title="Tools and Additional Materials" backgroundColor="secondary">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {/* Placeholder content - replace with your actual tools data */}
-        <div class="block bg-surface rounded-lg overflow-hidden shadow-sm">
-          <div class="aspect-video bg-gray-200 overflow-hidden">
-            <img 
-              src="/images/tools/placeholder.jpg" 
-              alt="Tool placeholder"
-              class="w-full h-full object-cover"
-            />
-          </div>
-          <div class="p-6">
-            <h3 class="font-medium text-lg text-primary mb-2">Music Theory Flashcards</h3>
-            <p class="text-body">Printable flashcards to help students learn music theory concepts.</p>
-          </div>
-        </div>
-
-        <div class="block bg-surface rounded-lg overflow-hidden shadow-sm">
-          <div class="aspect-video bg-gray-200 overflow-hidden">
-            <img 
-              src="/images/tools/placeholder.jpg" 
-              alt="Tool placeholder"
-              class="w-full h-full object-cover"
-            />
-          </div>
-          <div class="p-6">
-            <h3 class="font-medium text-lg text-primary mb-2">Practice Tracker</h3>
-            <p class="text-body">Downloadable sheet for tracking student practice sessions.</p>
-          </div>
-        </div>
+        {toolLessons.length > 0 ? (
+          toolLessons.map((tool) => (
+            // Assuming tools link to the same lesson structure for now
+            // Adjust href if tools have a different URL structure
+            <a 
+              href={`/music-education/lessons/${tool.category}/${tool.id}`} 
+              class="block bg-surface rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+            >
+              <div class="aspect-video bg-gray-200 overflow-hidden">
+                <img 
+                  src={tool.thumbnail} 
+                  alt={`Thumbnail for ${tool.title}`}
+                  class="w-full h-full object-cover"
+                />
+              </div>
+              <div class="p-6">
+                <h3 class="font-medium text-lg text-primary mb-2">{tool.title}</h3>
+                <p class="text-body line-clamp-2">{tool.description}</p>
+              </div>
+            </a>
+          ))
+        ) : (
+          <p>No tools or additional materials available yet.</p>
+        )}
       </div>
     </Section>
   </main>
