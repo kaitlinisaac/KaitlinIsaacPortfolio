@@ -1,13 +1,22 @@
 ---
+import Footer from '../components/Footer.astro';
+
 interface Props {
   title: string;
   description?: string;
+  ogImage?: string;
+  ogType?: string;
 }
 
 const { 
   title, 
-  description = "Kaitlin Isaac - Designer & Developer",
+  description = "Kaitlin Isaac - Music Educator & UX Designer",
+  ogImage = "/images/social-preview.jpg",
+  ogType = "website"
 } = Astro.props;
+
+// Get the canonical URL
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <!doctype html>
@@ -19,6 +28,21 @@ const {
     <link rel="icon" type="image/svg+xml" href="/images/Homepage-illustration.svg" />
     <link rel="stylesheet" href="/fonts/glacial-indifference.css">
     <meta name="generator" content={Astro.generator} />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content={ogType} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(ogImage, Astro.site)} />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={new URL(ogImage, Astro.site)} />
+    
     <title>{title}</title>
     <script is:inline>
       // Initialize theme
@@ -37,7 +61,10 @@ const {
       }
     </script>
   </head>
-  <body class="min-h-screen bg-surface dark:bg-dark-surface text-content dark:text-dark-content">
-    <slot />
+  <body class="min-h-screen bg-surface dark:bg-dark-surface text-content dark:text-dark-content flex flex-col">
+    <div class="flex-grow">
+      <slot />
+    </div>
+    <Footer />
   </body>
 </html>
