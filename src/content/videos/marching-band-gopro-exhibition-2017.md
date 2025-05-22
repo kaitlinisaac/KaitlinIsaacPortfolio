@@ -9,7 +9,7 @@ thumbnail: "/images/videos/flute-performances/marching-gopro-2017.jpg"
 
 # Marching Band GoPro – Exhibition 2017
 
-This video features a first-person view of my high school marching band performance during a 2017 exhibition event. I recorded the show with a GoPro attached to my head while playing flute on the field.
+This video features a first-person view of my college marching band performance during a 2017 exhibition event. I recorded the show with a GoPro attached to my head while playing piccolo on the field.
 
 ## Performance Context
 
