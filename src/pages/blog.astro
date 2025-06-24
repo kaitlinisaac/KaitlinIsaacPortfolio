@@ -5,66 +5,169 @@ import Section from '../components/Section.astro';
 import Heading from '../components/Heading.astro';
 import BlogPost from '../components/BlogPost.astro';
 import PillButton from '../components/PillButton.astro';
+import Tag from '../components/Tag.astro';
+import { getCollection } from 'astro:content';
 
-const posts = [
-  {
-    title: "Tips for Beginning Band Students",
-    description: "Helpful advice for students just starting their musical journey in band.",
-    date: "2023-09-15",
-    category: "Music Education",
-    slug: "/blog/tips-for-beginning-band-students",
-    tags: ["music education", "band", "beginners"]
-  },
-  {
-    title: "The Importance of User Testing in Design",
-    description: "Why testing your designs with real users is crucial for creating effective products.",
-    date: "2023-08-22",
-    category: "Design",
-    slug: "/blog/importance-of-user-testing",
-    tags: ["ux design", "user testing", "research"]
-  },
-  {
-    title: "Creating Effective Practice Routines",
-    description: "How to structure practice sessions for maximum effectiveness and enjoyment.",
-    date: "2023-07-10",
-    category: "Private Lessons",
-    slug: "/blog/effective-practice-routines",
-    tags: ["practice", "music education", "productivity"]
-  },
-  {
-    title: "Balancing Creativity and Usability in UI Design",
-    description: "Finding the sweet spot between creative expression and functional user interfaces.",
-    date: "2023-06-05",
-    category: "Design",
-    slug: "/blog/balancing-creativity-and-usability",
-    tags: ["ui design", "creativity", "usability"]
-  }
-];
+// Get all blog posts and sort by date
+const allBlogPosts = await getCollection('blog');
+const posts = allBlogPosts
+  .sort((a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime());
+
+// Get all unique categories
+const categories = [...new Set(posts.map(post => post.data.category))];
+
+// Get all unique tags
+const allTags = posts.flatMap(post => post.data.tags || []);
+const tags = [...new Set(allTags)].sort();
 ---
 
-<Layout title="Blog | Kaitlin Isaac">
+<Layout title="Writing | Kaitlin Isaac">
   <Header />
-  <main id="main" class="max-w-2xl mx-auto px-6 md:px-8 py-16 space-y-16">
-    <!-- Work in Progress Message -->
-    <section class="space-y-8 flex flex-col items-center text-center">
-      <h1 class="text-4xl md:text-5xl font-bold">Excuse the Mess 🚧 !</h1>
-      
-      <p class="text-xl">This site is still in progress. 👷🏽‍♀️</p>
-      
-      <div class="h-px w-24 bg-primary my-4"></div>
-      
-      <p class="text-xl">In the meantime</p>
-      
-      <!-- WordPress Blog Button -->
-      <div class="mt-6">
-        <PillButton 
-          href="https://kaitlinmisaac.wordpress.com/" 
-          external={true}
-          class="w-fit"
-        >
-          <span>Read my Blog on WordPress</span>
-        </PillButton>
-      </div>
+  <main id="main" class="max-w-4xl mx-auto px-6 md:px-8 py-16 space-y-12">
+    <section class="space-y-6 text-center">
+      <Heading level={1}>Writing</Heading>
+      <p class="text-lg max-w-2xl mx-auto">
+        Thoughts and insights on music education, design, and creativity
+      </p>
     </section>
+
+    <!-- Filter Controls -->
+    <div class="flex flex-col md:flex-row gap-6 justify-between">
+      <!-- Category Filter -->
+      <div class="space-y-2 w-full md:w-auto">
+        <h2 class="text-sm font-medium text-content-muted">Filter by Category</h2>
+        <div class="flex flex-wrap gap-2" id="category-filters">
+          <button class="tag tag-primary active-filter" data-filter="all">All</button>
+          {categories.map((category) => (
+            <button 
+              class="tag tag-secondary" 
+              data-filter={category}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <!-- Tag Filter -->
+      <div class="space-y-2 w-full md:w-auto">
+        <h2 class="text-sm font-medium text-content-muted">Filter by Tag</h2>
+        <div class="flex flex-wrap gap-2" id="tag-filters">
+          <button class="tag tag-accent active-filter" data-filter="all">All</button>
+          {tags.map((tag) => (
+            <button 
+              class="tag tag-accent"
+              data-filter={tag}
+            >
+              {tag}
+            </button>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <!-- Writing Posts -->
+    <div class="space-y-8" id="writing-posts">
+      {posts.map((post) => (
+        <div 
+          class="writing-post" 
+          data-category={post.data.category} 
+          data-tags={post.data.tags?.join(',') || ''}
+        >
+          <BlogPost 
+            title={post.data.title}
+            description={post.data.description}
+            date={post.data.publishDate.toISOString().split('T')[0]}
+            category={post.data.category}
+            slug={`/blog/${post.slug}`}
+          />
+          {post.data.tags && post.data.tags.length > 0 && (
+            <div class="flex flex-wrap gap-2 mt-3 pl-0">
+              {post.data.tags.map(tag => (
+                <span class="text-xs bg-surface-secondary dark:bg-dark-surface-secondary px-2 py-1 rounded-md">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
   </main>
-</Layout> 
+</Layout>
+
+<script>
+  // Set up filtering functionality
+  document.addEventListener('DOMContentLoaded', () => {
+    const categoryFilters = document.querySelectorAll('#category-filters button');
+    const tagFilters = document.querySelectorAll('#tag-filters button');
+    const writingPosts = document.querySelectorAll('.writing-post');
+    
+    let activeCategory = 'all';
+    let activeTag = 'all';
+    
+    // Add click event for category filters
+    categoryFilters.forEach(filter => {
+      filter.addEventListener('click', () => {
+        // Update active filter UI
+        categoryFilters.forEach(f => f.classList.remove('active-filter'));
+        filter.classList.add('active-filter');
+        
+        // Store active category
+        activeCategory = filter.getAttribute('data-filter');
+        
+        // Apply filters
+        applyFilters();
+      });
+    });
+    
+    // Add click event for tag filters
+    tagFilters.forEach(filter => {
+      filter.addEventListener('click', () => {
+        // Update active filter UI
+        tagFilters.forEach(f => f.classList.remove('active-filter'));
+        filter.classList.add('active-filter');
+        
+        // Store active tag
+        activeTag = filter.getAttribute('data-filter');
+        
+        // Apply filters
+        applyFilters();
+      });
+    });
+    
+    // Filter posts based on active category and tag
+    function applyFilters() {
+      writingPosts.forEach(post => {
+        const postCategory = post.getAttribute('data-category');
+        const postTags = post.getAttribute('data-tags')?.split(',') || [];
+        
+        const matchesCategory = activeCategory === 'all' || postCategory === activeCategory;
+        const matchesTag = activeTag === 'all' || postTags.includes(activeTag);
+        
+        if (matchesCategory && matchesTag) {
+          post.classList.remove('hidden');
+        } else {
+          post.classList.add('hidden');
+        }
+      });
+    }
+  });
+</script>
+
+<style>
+  /* Active filter styles */
+  .active-filter {
+    @apply ring-2 ring-iconColor;
+  }
+  
+  /* Animation for filtering */
+  .writing-post {
+    transition: all 0.3s ease;
+  }
+
+  /* Hidden class for filtering */
+  .hidden {
+    display: none;
+  }
+</style> 

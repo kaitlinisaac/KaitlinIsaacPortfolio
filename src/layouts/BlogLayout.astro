@@ -14,6 +14,19 @@ const formattedDate = format(publishDate, 'MMMM d, yyyy');
   <Header />
   <main id="main" class="max-w-4xl mx-auto px-6 md:px-8 py-2xl">
     <article class="max-w-content mx-auto">
+      <!-- Back button -->
+      <div class="mb-6">
+        <a 
+          href="/blog" 
+          class="inline-flex items-center gap-2 text-primary hover:text-primary-dark dark:hover:text-primary-light transition-colors"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+          </svg>
+          Back to Writing
+        </a>
+      </div>
+
       {draft && (
         <div class="mb-2xl p-md bg-accent/10 border-l-4 border-accent rounded" role="alert">
           <p class="text-lg font-medium">📝 Work in Progress</p>
