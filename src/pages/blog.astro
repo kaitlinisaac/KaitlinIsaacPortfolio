@@ -11,6 +11,7 @@ import { getCollection } from 'astro:content';
 // Get all blog posts and sort by date
 const allBlogPosts = await getCollection('blog');
 const posts = allBlogPosts
+  .filter(post => !post.data.draft)
   .sort((a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime());
 
 // Get all unique categories

@@ -4,6 +4,7 @@ publishDate: 2024-06-24
 description: "A behind-the-scenes look at the branding, design, and development process for Automate the Suck Out of Life."
 tags: ["branding", "web design", "automation", "nonprofit"]
 category: "Design"
+draft: true
 ---
 
 ## The Beginning
