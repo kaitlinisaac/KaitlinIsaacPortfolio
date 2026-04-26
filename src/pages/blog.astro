@@ -16,63 +16,60 @@ const posts = allBlogPosts
 // Get all unique categories
 const categories = [...new Set(posts.map(post => post.data.category))];
 
-// Get all unique tags
-const allTags = posts.flatMap(post => post.data.tags || []);
-const tags = [...new Set(allTags)].sort();
 ---
 
-<Layout title="Writing | Kaitlin Isaac">
+<Layout title="Blog | Kaitlin Isaac">
   <Header />
   <main id="main" class="max-w-4xl mx-auto px-6 md:px-8 py-16 space-y-12">
     <section class="space-y-6 text-center">
-      <Heading level={1}>Writing</Heading>
+      <Heading level={1}>Blog</Heading>
       <p class="text-lg max-w-2xl mx-auto">
         Thoughts and insights on music education, design, and creativity
       </p>
     </section>
 
     <!-- Filter Controls -->
-    <div class="flex flex-col md:flex-row gap-6 justify-between">
-      <!-- Category Filter -->
-      <div class="space-y-2 w-full md:w-auto">
-        <h2 class="text-sm font-medium text-content-muted">Filter by Category</h2>
-        <div class="flex flex-wrap gap-2" id="category-filters">
-          <button class="tag tag-primary active-filter" data-filter="all">All</button>
-          {categories.map((category) => (
-            <button 
-              class="tag tag-secondary" 
-              data-filter={category}
-            >
-              {category}
-            </button>
-          ))}
-        </div>
-      </div>
+    <div class="space-y-2">
+      <h2 class="text-sm font-medium text-content-muted">Filter by Category</h2>
+      <div class="relative inline-block" id="category-dropdown">
+        <button
+          id="dropdown-trigger"
+          aria-haspopup="true"
+          aria-expanded="false"
+          class="flex items-center gap-2 px-4 py-2 rounded-lg border border-accent bg-surface dark:bg-dark-surface text-sm font-medium hover:bg-surface-secondary dark:hover:bg-dark-surface-secondary transition-colors"
+        >
+          <span id="dropdown-label">All</span>
+          <svg id="dropdown-chevron" xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform duration-200" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+          </svg>
+        </button>
 
-      <!-- Tag Filter -->
-      <div class="space-y-2 w-full md:w-auto">
-        <h2 class="text-sm font-medium text-content-muted">Filter by Tag</h2>
-        <div class="flex flex-wrap gap-2" id="tag-filters">
-          <button class="tag tag-accent active-filter" data-filter="all">All</button>
-          {tags.map((tag) => (
-            <button 
-              class="tag tag-accent"
-              data-filter={tag}
-            >
-              {tag}
-            </button>
+        <div
+          id="dropdown-panel"
+          class="hidden absolute left-0 mt-1 z-10 bg-surface dark:bg-dark-surface border border-accent rounded-lg shadow-lg py-1 min-w-[140px]"
+        >
+          {(['all', ...categories] as string[]).map((value) => (
+            <label class="flex items-center gap-3 px-4 py-2 cursor-pointer hover:bg-surface-secondary dark:hover:bg-dark-surface-secondary text-sm">
+              <input
+                type="radio"
+                name="category"
+                value={value}
+                checked={value === 'all'}
+                class="accent-primary"
+              />
+              {value === 'all' ? 'All' : value}
+            </label>
           ))}
         </div>
       </div>
     </div>
 
-    <!-- Writing Posts -->
-    <div class="space-y-8" id="writing-posts">
+    <!-- Blog Posts -->
+    <div class="space-y-8" id="blog-posts">
       {posts.map((post) => (
-        <div 
-          class="writing-post" 
-          data-category={post.data.category} 
-          data-tags={post.data.tags?.join(',') || ''}
+        <div
+          class="blog-post"
+          data-category={post.data.category}
         >
           <BlogPost 
             title={post.data.title}
@@ -97,76 +94,58 @@ const tags = [...new Set(allTags)].sort();
 </Layout>
 
 <script>
-  // Set up filtering functionality
   document.addEventListener('DOMContentLoaded', () => {
-    const categoryFilters = document.querySelectorAll('#category-filters button');
-    const tagFilters = document.querySelectorAll('#tag-filters button');
-    const writingPosts = document.querySelectorAll('.writing-post');
-    
-    let activeCategory = 'all';
-    let activeTag = 'all';
-    
-    // Add click event for category filters
-    categoryFilters.forEach(filter => {
-      filter.addEventListener('click', () => {
-        // Update active filter UI
-        categoryFilters.forEach(f => f.classList.remove('active-filter'));
-        filter.classList.add('active-filter');
-        
-        // Store active category
-        activeCategory = filter.getAttribute('data-filter');
-        
-        // Apply filters
-        applyFilters();
-      });
-    });
-    
-    // Add click event for tag filters
-    tagFilters.forEach(filter => {
-      filter.addEventListener('click', () => {
-        // Update active filter UI
-        tagFilters.forEach(f => f.classList.remove('active-filter'));
-        filter.classList.add('active-filter');
-        
-        // Store active tag
-        activeTag = filter.getAttribute('data-filter');
-        
-        // Apply filters
-        applyFilters();
-      });
-    });
-    
-    // Filter posts based on active category and tag
-    function applyFilters() {
-      writingPosts.forEach(post => {
-        const postCategory = post.getAttribute('data-category');
-        const postTags = post.getAttribute('data-tags')?.split(',') || [];
-        
-        const matchesCategory = activeCategory === 'all' || postCategory === activeCategory;
-        const matchesTag = activeTag === 'all' || postTags.includes(activeTag);
-        
-        if (matchesCategory && matchesTag) {
-          post.classList.remove('hidden');
-        } else {
-          post.classList.add('hidden');
-        }
-      });
+    const trigger = document.getElementById('dropdown-trigger');
+    const panel = document.getElementById('dropdown-panel');
+    const label = document.getElementById('dropdown-label');
+    const chevron = document.getElementById('dropdown-chevron');
+    const radios = document.querySelectorAll<HTMLInputElement>('input[name="category"]');
+    const blogPosts = document.querySelectorAll('.blog-post');
+
+    function openDropdown() {
+      panel?.classList.remove('hidden');
+      trigger?.setAttribute('aria-expanded', 'true');
+      chevron?.classList.add('rotate-180');
     }
+
+    function closeDropdown() {
+      panel?.classList.add('hidden');
+      trigger?.setAttribute('aria-expanded', 'false');
+      chevron?.classList.remove('rotate-180');
+    }
+
+    trigger?.addEventListener('click', () => {
+      const isOpen = trigger.getAttribute('aria-expanded') === 'true';
+      isOpen ? closeDropdown() : openDropdown();
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!document.getElementById('category-dropdown')?.contains(e.target as Node)) {
+        closeDropdown();
+      }
+    });
+
+    radios.forEach(radio => {
+      radio.addEventListener('change', () => {
+        const selected = radio.value;
+        if (label) label.textContent = selected === 'all' ? 'All' : selected;
+
+        blogPosts.forEach(post => {
+          const matches = selected === 'all' || post.getAttribute('data-category') === selected;
+          post.classList.toggle('hidden', !matches);
+        });
+
+        closeDropdown();
+      });
+    });
   });
 </script>
 
 <style>
-  /* Active filter styles */
-  .active-filter {
-    @apply ring-2 ring-iconColor;
-  }
-  
-  /* Animation for filtering */
-  .writing-post {
+  .blog-post {
     transition: all 0.3s ease;
   }
 
-  /* Hidden class for filtering */
   .hidden {
     display: none;
   }
