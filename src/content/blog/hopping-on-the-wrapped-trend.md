@@ -4,6 +4,7 @@ publishDate: 2024-01-19
 description: "I created a personalized \"Wrapped\" presentation to celebrate my husband's 30th birthday — here's how I designed it and what made it special."
 tags: ["design", "Canva", "data visualization", "personal project", "creative gifting"]
 category: "Design"
+cover: "/images/blog/hopping-on-the-wrapped-trend/20s-wrapped-6.png"
 ---
 
 One of the great joys and struggles of being on Instagram in December is seeing everyone's personalized "Spotify Wrapped," summing up their year of music/podcast listening with fun designs and silly statistics.

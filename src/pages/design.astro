@@ -1,32 +1,97 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
+import Section from '../components/Section.astro';
+import Heading from '../components/Heading.astro';
 import PillButton from '../components/PillButton.astro';
+import { getCollection } from 'astro:content';
+
+const allPosts = await getCollection('blog');
+const designPosts = allPosts
+  .filter(post => post.data.category === 'Design' && !post.data.draft)
+  .sort((a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime());
 ---
 
-<Layout title="Design Work | Kaitlin Isaac">
+<Layout title="Design | Kaitlin Isaac">
   <Header />
   <main id="main" class="max-w-2xl mx-auto px-6 md:px-8 py-16 space-y-16">
-    <!-- Work in Progress Message -->
-    <section class="space-y-8 flex flex-col items-center text-center">
-      <h1 class="text-4xl md:text-5xl font-bold">Excuse the Mess 🚧 !</h1>
-      
-      <p class="text-xl">This site is still in progress. 👷🏽‍♀️</p>
-      
-      <div class="h-px w-24 bg-primary my-4"></div>
-      
-      <p class="text-xl">In the meantime</p>
-      
-      <!-- GitHub Button -->
-      <div class="mt-6">
-        <PillButton 
-          href="https://github.com/kaitlinisaac" 
-          external={true}
-          class="w-fit"
-        >
-          <span>Check Out My GitHub</span>
+
+    <!-- Hero Section -->
+    <section class="space-y-6 max-w-2xl">
+      <Heading level={1}>Design</Heading>
+
+      <h2 class="text-xl font-semibold mt-8">My Design Philosophy</h2>
+
+      <p class="text-lg leading-relaxed">
+        My design philosophy grew out of my work as a music educator, and the throughline is simpler than it might sound: people do their best work when they feel seen, trusted, and like they genuinely belong in the room. In the classroom, that means clear expectations that make the environment feel consistent and safe, high standards that communicate real belief in what students can do, and data-informed decisions that remove bias from how I assess progress. At the design level, those same values translate — structure creates the conditions for creativity, empathy drives the decisions, and feedback (real, honest, ongoing) is what keeps the work honest. But underneath all of that is something I never want to lose sight of: music and design are, at their core, beautiful. They're fun. They exist because humans wanted to make something that moves people. I carry that with me — as a flutist who still gets nervous before a performance, and as a designer who genuinely delights in a solution that just works. The goal in both spaces is the same: build something that people don't just use, but that they feel a part of.
+      </p>
+    </section>
+
+    <!-- Featured Projects Section -->
+    <Section title="Featured Projects" backgroundColor="accent">
+      <a
+        href="https://motif.cool"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="group block bg-surface dark:bg-dark-surface rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+      >
+        <div class="aspect-[16/7] bg-accent/20 dark:bg-accent/10 flex items-center justify-center">
+          <span class="text-xs font-medium text-content-muted dark:text-dark-content-muted uppercase tracking-widest">
+            Coming Soon
+          </span>
+        </div>
+        <div class="p-6 space-y-2">
+          <h3 class="font-medium text-lg text-primary group-hover:text-primary-dark dark:group-hover:text-primary-light transition-colors">
+            motif.cool
+          </h3>
+          <p class="text-body text-content-muted dark:text-dark-content-muted">
+            Project details coming soon.
+          </p>
+        </div>
+      </a>
+    </Section>
+
+    <!-- Blogs About Design Section -->
+    <Section title="Blogs About Design" backgroundColor="secondary">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {designPosts.map((post) => (
+          <a
+            href={`/blog/${post.slug}`}
+            class="group block bg-surface dark:bg-dark-surface rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+          >
+            <div class="aspect-video bg-accent/20 dark:bg-accent/10 overflow-hidden">
+              {post.data.cover ? (
+                <img
+                  src={post.data.cover}
+                  alt={post.data.title}
+                  class="w-full h-full object-cover"
+                />
+              ) : (
+                <div class="w-full h-full flex items-center justify-center">
+                  <span class="text-xs font-medium text-content-muted dark:text-dark-content-muted uppercase tracking-widest">
+                    {post.data.category}
+                  </span>
+                </div>
+              )}
+            </div>
+            <div class="p-6 space-y-2">
+              <h3 class="font-medium text-lg text-primary group-hover:text-primary-dark dark:group-hover:text-primary-light transition-colors line-clamp-2">
+                {post.data.title}
+              </h3>
+              <p class="text-body text-content-muted dark:text-dark-content-muted line-clamp-2">
+                {post.data.description}
+              </p>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <div class="mt-8">
+        <PillButton href="/blog" backgroundColor="iconColor">
+          See All Writing
         </PillButton>
       </div>
-    </section>
+    </Section>
+
   </main>
-</Layout> 
+</Layout>

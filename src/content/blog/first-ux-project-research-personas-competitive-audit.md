@@ -4,6 +4,7 @@ publishDate: 2023-10-16
 description: "A mini case study documenting how I chose my first UX project, conducted user interviews with ChatGPT, built personas, and ran a competitive audit — all while studying the Google UX Design Certificate."
 tags: ["UX design", "UX research", "design process", "user personas", "competitive audit", "Google UX Certificate"]
 category: "Design"
+cover: "/images/blog/first-ux-project-research-personas-competitive-audit/dallc2b7e-black-and-white-photo.png"
 ---
 
 My journey into UX has been exciting and scary at times. I often find myself having trouble recognizing the work that I have done. I have completed the first two courses in the Google UX Design Certificate over on Coursera, and this post is to document my experience with these courses and the progress I have made so far! A mini-case study that I will later include in a much larger, much better case study. This post will include the following aspects of my journey:

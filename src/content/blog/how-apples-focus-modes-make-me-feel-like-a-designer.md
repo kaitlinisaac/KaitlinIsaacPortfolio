@@ -4,6 +4,7 @@ publishDate: 2023-09-06
 description: "How I used Apple's Focus Modes to redesign my mornings and improve my productivity — and what it taught me about UX design thinking."
 tags: ["Apple", "productivity", "UX design", "mindfulness", "tech tips"]
 category: "Design"
+cover: "/images/blog/how-apples-focus-modes-make-me-feel-like-a-designer/untitled-design-4.png"
 ---
 
 Although I am new to the design and tech space, I am pretty savvy when it comes to the world of Apple Products. I have been a huge, self-proclaimed "Apple nerd" since I got my first iPod Nano in 6th grade.
