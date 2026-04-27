@@ -5,7 +5,7 @@ import Tag from '../components/Tag.astro';
 import { format } from 'date-fns';
 
 const { frontmatter } = Astro.props;
-const { title, publishDate, description, tags, draft } = frontmatter;
+const { title, publishDate, description, tags, draft, cover } = frontmatter;
 
 const formattedDate = format(publishDate, 'MMMM d, yyyy');
 ---
@@ -54,6 +54,14 @@ const formattedDate = format(publishDate, 'MMMM d, yyyy');
               <Tag name={tag} colorIndex={index} />
             ))}
           </div>
+        )}
+
+        {cover && (
+          <img
+            src={cover}
+            alt=""
+            class="w-full rounded-lg object-cover"
+          />
         )}
       </header>
 
